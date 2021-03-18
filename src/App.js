@@ -25,7 +25,8 @@ export default function App() {
       <Provider store={store}>
         <Suspense fallback={<ActivityIndicator size="big" />}>
           <View style={styles.root}>
-            <AppContainer />
+            {/* <AppContainer /> */}
+            <AppTabView />
           </View>
         </Suspense>
       </Provider>

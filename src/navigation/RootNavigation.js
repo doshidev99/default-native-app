@@ -1,12 +1,14 @@
 import React, { useEffect, memo } from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from 'react-native-splash-screen';
 
-import { MainDrawerScreen } from './authenNavigation';
-import { UnAuthentication } from './unAuthenNavigation';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const RootStack = createStackNavigator();
+import Login from '../screen/unAuthentication/Login';
+
+import { APP_SCREEN, StackAuthentication } from './screenTypes';
+
+const Stack = createStackNavigator();
 
 const RootNavigator = () => {
   useEffect(() => {
@@ -16,24 +18,23 @@ const RootNavigator = () => {
   const token = true;
 
   return (
-    <RootStack.Navigator headerMode="none" screenOptions={{}}>
-      {
-        !token ? (
-          <RootStack.Screen
-            options={{ gestureEnabled: false }}
-            name="UN_AUTHORIZE"
-            component={UnAuthentication}
-          />
-        ) : (
-          <RootStack.Screen
-            options={{ gestureEnabled: false }}
-            name="HOME"
-            component={MainDrawerScreen}
-          />
-        )
-      }
-
-    </RootStack.Navigator>
+    <>
+      <Stack.Navigator headerMode="none">
+        {
+          !token ? (
+            <Stack.Screen name={APP_SCREEN.LOGIN} component={Login} />
+          ) : (
+            <>
+              {
+                StackAuthentication.map((s) => (
+                  <Stack.Screen key={s.name} name={s.name} component={s.component} />
+                ))
+              }
+            </>
+          )
+        }
+      </Stack.Navigator>
+    </>
   );
 };
 

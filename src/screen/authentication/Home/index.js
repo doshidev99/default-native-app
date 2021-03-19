@@ -1,24 +1,55 @@
 import React, { memo } from 'react';
-import { View, Text } from 'react-native';
+import {
+  Platform, ScrollView, TouchableNativeFeedback, View,
+} from 'react-native';
 
-import PropTypes from 'prop-types';
+import { COLORS } from '../../../assets/styles';
 
-import AppTabBottom from '../../../component/AppTabBottom';
+import AppHeader from '../../../component/AppHeader';
+import AppFriendCard from '../../../component/AppFriendCard';
 import AppText from '../../../component/AppText';
+// import AppTabViewBottom from '../../../component/AppTabViewBottom';
 
 const Home = () => (
-  <View style={{
+  <View style={[{
     flex: 1,
-    backgroundColor: '#FFF',
-  }}
+    justifyContent: 'space-between',
+    backgroundColor: COLORS.NEUTRAL_WHITE,
+  }, Platform.OS === 'ios' && { paddingTop: 35 }]}
   >
-    <View style={{ paddingHorizontal: 16, paddingTop: 32, paddingBottom: 16 }}>
+    <AppHeader />
+
+    <View style={{
+      paddingHorizontal: 16,
+      paddingTop: 32,
+      paddingBottom: 16,
+      flex: 50,
+      backgroundColor: '#FFF',
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
+    }}
+    >
       <AppText content="Hello, Sarah." color="red" size={16} />
       <AppText content="How are you today?" size={28} bold />
     </View>
+
+    <View style={{ flex: 30, justifyContent: 'flex-end' }}>
+      <ScrollView>
+
+        <TouchableNativeFeedback>
+          <AppFriendCard uri={require('../../../assets/images/default-avt.png')} />
+        </TouchableNativeFeedback>
+        <AppFriendCard uri={require('../../../assets/images/default-avt.png')} />
+        <AppFriendCard uri={require('../../../assets/images/default-avt.png')} />
+        <AppFriendCard uri={require('../../../assets/images/default-avt.png')} />
+        <AppFriendCard uri={require('../../../assets/images/default-avt.png')} />
+      </ScrollView>
+    </View>
+
   </View>
 
 );
+
 Home.propTypes = {
 };
 

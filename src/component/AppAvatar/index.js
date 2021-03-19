@@ -2,23 +2,31 @@ import React from 'react';
 import {
   View,
 } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+
 import PropTypes from 'prop-types';
 
 import { images } from '../../assets/images';
 
 import AppImage from '../AppImage';
 import AppText from '../AppText';
+import AppButton from '../AppButton';
+
 import styles from './styles';
 
 const AppAvatar = (props) => {
   const {
+    containerStyles,
     avatar, name, birthday, age,
   } = props;
 
+  const navigation = useNavigation();
+
   return (
-    <View style={{
-      ...styles.container,
-    }}
+    <View style={[
+      styles.container, containerStyles,
+    ]}
     >
       <View>
         <AppImage
@@ -56,6 +64,8 @@ const AppAvatar = (props) => {
         <AppImage uri={images.icCake} size="icon" />
         <AppText content={`${age} years`} color="red" capitalize textAlign="center" />
       </View>
+
+      <AppButton content="clicked" onPress={() => navigation.navigate('Gift Details')} />
     </View>
   );
 };
@@ -63,6 +73,7 @@ const AppAvatar = (props) => {
 export default AppAvatar;
 
 AppAvatar.propTypes = {
+  containerStyles: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   // eslint-disable-next-line react/forbid-prop-types
   avatar: PropTypes.any.isRequired,
   name: PropTypes.string,
@@ -71,6 +82,7 @@ AppAvatar.propTypes = {
 };
 
 AppAvatar.defaultProps = {
+  containerStyles: {},
   name: 'Katie Yates',
   birthday: '2nd August',
   age: 22,

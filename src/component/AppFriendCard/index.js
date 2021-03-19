@@ -30,7 +30,7 @@ const AppFriendCard = (props) => {
         }}
       />
 
-      <View style={styles.content}>
+      <View style={[styles.content]}>
         <AppText
           content={mainName}
           color="dark"
@@ -51,8 +51,6 @@ const AppFriendCard = (props) => {
   );
 };
 
-export default AppFriendCard;
-
 AppFriendCard.propTypes = {
   uri: Image.propTypes.source.isRequired,
   mainName: PropTypes.string,
@@ -63,5 +61,7 @@ AppFriendCard.propTypes = {
 AppFriendCard.defaultProps = {
   mainName: 'Anthony Sims',
   subName: '2nd August',
-  addon: true,
+  addon: false,
 };
+
+export default AppFriendCard;

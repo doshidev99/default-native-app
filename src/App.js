@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler';
+
 import React, { Suspense } from 'react';
 import {
   View,
@@ -11,7 +13,6 @@ import { Provider } from 'react-redux';
 import store from './redux/rootSaga';
 
 import AppContainer from './navigation/AppContainer';
-import AppTabView from './component/AppTabView';
 
 const styles = StyleSheet.create({
   root: {
@@ -25,8 +26,7 @@ export default function App() {
       <Provider store={store}>
         <Suspense fallback={<ActivityIndicator size="big" />}>
           <View style={styles.root}>
-            {/* <AppContainer /> */}
-            <AppTabView />
+            <AppContainer />
           </View>
         </Suspense>
       </Provider>

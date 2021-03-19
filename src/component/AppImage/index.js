@@ -86,7 +86,7 @@ const AppImage = (props) => {
 
 AppImage.propTypes = {
   uri: Image.propTypes.source,
-  containerStyles: PropTypes.instanceOf(Object),
+  containerStyles: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   size: PropTypes.oneOf(['small', 'medium', 'big', 'icon', 'special-icon', '']),
   resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch', 'repeat', 'center']),
   styleImage: PropTypes.instanceOf(Object),

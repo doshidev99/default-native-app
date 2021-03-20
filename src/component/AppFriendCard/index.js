@@ -20,7 +20,7 @@ const AppFriendCard = (props) => {
     <View style={[styles.container]}>
 
       <AppImage
-        containerStyles={styles.avatar}
+        containerStyles={[styles.avatar]}
         uri={uri}
         resize="cover"
         size="small"

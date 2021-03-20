@@ -1,18 +1,12 @@
+import { useNavigation } from '@react-navigation/native';
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   View,
 } from 'react-native';
-
-import { useNavigation } from '@react-navigation/native';
-
-import PropTypes from 'prop-types';
-
 import { images } from '../../assets/images';
-
 import AppImage from '../AppImage';
 import AppText from '../AppText';
-import AppButton from '../AppButton';
-
 import styles from './styles';
 
 const AppAvatar = (props) => {
@@ -65,7 +59,6 @@ const AppAvatar = (props) => {
         <AppText content={`${age} years`} color="red" capitalize textAlign="center" />
       </View>
 
-      <AppButton content="clicked" onPress={() => navigation.navigate('Gift Details')} />
     </View>
   );
 };

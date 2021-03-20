@@ -6,9 +6,21 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Login from '../screen/unAuthentication/Login';
 
-import { APP_SCREEN, StackAuthentication } from './screenTypes';
+import { APP_SCREEN } from './screenTypes';
+
+import Home from '../screen/authentication/Home';
+import Setting from '../screen/authentication/Setting';
+import GiftDetail from '../screen/authentication/GiftDetail';
 
 const Stack = createStackNavigator();
+
+const StackAuthentication = [
+  { name: APP_SCREEN.HOME, component: Home },
+  { name: APP_SCREEN.LISTER, component: Home },
+  { name: APP_SCREEN.GIVER, component: Home },
+  { name: APP_SCREEN.SETTING, component: Setting },
+  { name: APP_SCREEN.GIFTDETAIL, component: GiftDetail },
+];
 
 const RootNavigator = () => {
   useEffect(() => {

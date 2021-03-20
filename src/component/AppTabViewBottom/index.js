@@ -3,7 +3,7 @@ import { useWindowDimensions, View } from 'react-native';
 import { SceneMap, TabView, TabBar } from 'react-native-tab-view';
 
 import HomeScreen from '../../screen/authentication/Home';
-import SettingScreen from '../../screen/authentication/Home/Setting';
+import SettingScreen from '../../screen/authentication/Setting';
 
 import AppImage from '../AppImage';
 import AppText from '../AppText';

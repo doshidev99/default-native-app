@@ -17,6 +17,10 @@ export default StyleSheet.create({
     flex: 10,
   },
 
+  bgImage: {
+    backgroundColor: '#1C0404',
+  },
+
   content: {
     flex: 60,
     paddingLeft: 10,

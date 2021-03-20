@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Image,
+  View, Image, TouchableWithoutFeedback,
 } from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -22,12 +22,10 @@ const AppFriendCard = (props) => {
       <AppImage
         containerStyles={[styles.avatar]}
         uri={uri}
-        resize="cover"
+        resizeMode="cover"
         size="small"
         shape="circle"
-        styleImage={{
-          backgroundColor: '#1C0404',
-        }}
+        styleImage={[styles.bgImage]}
       />
 
       <View style={[styles.content]}>

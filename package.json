@@ -7,7 +7,7 @@
     "start": "react-native start",
     "test": "jest",
     "pod": "cd ios && pod install",
-    "pixel": "react-native run-android --emulator 'emulator-5554'"
+    "pixel": "react-native run-android android_device_5.5_inch"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^5.11.8",
@@ -20,6 +20,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.4",
+    "react-native-calendars": "^1.1254.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-pager-view": "^5.1.2",
     "react-native-reanimated": "~1.13.0",

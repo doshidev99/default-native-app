@@ -1,13 +1,16 @@
-import { useNavigation } from '@react-navigation/native';
-import PropTypes from 'prop-types';
 import React from 'react';
 import {
   View,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+import PropTypes from 'prop-types';
+
 import { images } from '../../assets/images';
+
+import styles from './styles';
 import AppImage from '../AppImage';
 import AppText from '../AppText';
-import styles from './styles';
 
 const AppAvatar = (props) => {
   const {

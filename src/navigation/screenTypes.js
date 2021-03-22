@@ -8,4 +8,5 @@ export const APP_SCREEN = {
   SETTING: 'SETTING',
 
   GIFTDETAIL: 'GiftDetail',
+  FRIENDGIFT: 'FRIENDGIFT',
 };

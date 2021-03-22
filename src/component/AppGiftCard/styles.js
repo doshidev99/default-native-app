@@ -5,7 +5,6 @@ import { COLORS } from '../../assets/styles';
 export default StyleSheet.create({
   container: {
     marginBottom: 10,
-    marginRight: 10,
 
     backgroundColor: COLORS.NEUTRAL_GRAY_5,
     borderRadius: 4,

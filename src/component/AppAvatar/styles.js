@@ -14,6 +14,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
 
     width: 122,
+    height: 34,
     marginTop: 14,
     paddingVertical: 10,
     paddingHorizontal: 20,

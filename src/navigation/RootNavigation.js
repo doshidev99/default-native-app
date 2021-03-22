@@ -11,6 +11,7 @@ import { APP_SCREEN } from './screenTypes';
 import Home from '../screen/authentication/Home';
 import Setting from '../screen/authentication/Setting';
 import GiftDetail from '../screen/authentication/GiftDetail';
+import FriendGift from '../screen/authentication/FriendGift';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ const StackAuthentication = [
   { name: APP_SCREEN.GIVER, component: Home },
   { name: APP_SCREEN.SETTING, component: Setting },
   { name: APP_SCREEN.GIFTDETAIL, component: GiftDetail },
+  { name: APP_SCREEN.FRIENDGIFT, component: FriendGift },
 ];
 
 const RootNavigator = () => {
@@ -31,7 +33,7 @@ const RootNavigator = () => {
 
   return (
     <>
-      <Stack.Navigator headerMode="none">
+      <Stack.Navigator headerMode="none" initialRouteName={APP_SCREEN.FRIENDGIFT}>
         {
           !token ? (
             <Stack.Screen name={APP_SCREEN.LOGIN} component={Login} />

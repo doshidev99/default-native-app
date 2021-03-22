@@ -11,9 +11,7 @@ const AppImage = (props) => {
     containerStyles,
     size,
     resizeMode,
-    styleImage,
     shape,
-    otherStyle,
   } = props;
 
   let sizeImage;
@@ -66,17 +64,15 @@ const AppImage = (props) => {
   }
 
   return (
-    <View style={[styles.container, containerStyles]}>
+    <View style={[
+      styles.container,
+      sizeImage,
+      containerStyles,
+      styleRadius,
+    ]}
+    >
       <Image
-        style={
-          [
-            sizeImage,
-            styleImage,
-            otherStyle,
-            styleRadius,
-            { resizeMode },
-          ]
-        }
+        style={[{ resizeMode, width: '100%', height: '100%' }, styleRadius]}
         source={uri}
       />
 
@@ -89,9 +85,7 @@ AppImage.propTypes = {
   containerStyles: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   size: PropTypes.oneOf(['small', 'medium', 'big', 'icon', 'special-icon', '']),
   resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch', 'repeat', 'center']),
-  styleImage: PropTypes.instanceOf(Object),
   shape: PropTypes.string,
-  otherStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 AppImage.defaultProps = {
@@ -99,10 +93,7 @@ AppImage.defaultProps = {
   containerStyles: {},
   size: '',
   resizeMode: 'contain',
-  styleImage: null,
   shape: null,
-  otherStyle: {},
-
 };
 
 export default memo(AppImage);

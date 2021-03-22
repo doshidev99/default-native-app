@@ -65,5 +65,10 @@
 		renderHeader={(date) => {/*Return JSX*/}}
 		// Enable the option to swipe between months. Default = false
 		enableSwipeMonths={true}
+
+		theme={{
+			 textDayFontSize: 14, // font list day
+			  textDayHeaderFontSize: 14, // font the week
+		}}
 	/>
 ```

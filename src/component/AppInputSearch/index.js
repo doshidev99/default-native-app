@@ -16,7 +16,7 @@ const AppInputSearch = (props) => {
     <View style={[{
       width,
       height,
-    }]}
+    }, styles.container]}
     >
       <TextInput
         style={styles.input}

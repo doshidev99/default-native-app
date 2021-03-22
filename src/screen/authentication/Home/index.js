@@ -1,11 +1,11 @@
 import React, { memo, useState } from 'react';
 import {
   ScrollView,
-  TouchableWithoutFeedback, View,
+  View,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import { Calendar } from 'react-native-calendars';
 
 import { images } from '../../../assets/images';
 import { COLORS } from '../../../assets/styles';
@@ -20,30 +20,13 @@ import AppFriendCard from '../../../component/AppFriendCard';
 
 import { APP_SCREEN } from '../../../navigation/screenTypes';
 
-const listFriends = [
-  {
-    id: 1, name: 'Anthony Sims', birthDay: '2nd August', avatar: images.defaultAvatar,
-  },
-  {
-    id: 2, name: 'Allie Bridges', birthDay: '17 July', avatar: images.defaultAvatar,
-  },
-  {
-    id: 3, name: 'Allie Bridges', birthDay: '17 July', avatar: images.defaultAvatar,
-  },
-  {
-    id: 4, name: 'Billy Steele', birthDay: '22 October', avatar: { uri: 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png' },
-  },
-];
-
 const Home = () => {
   const navigation = useNavigation();
 
-  const [currentDay, setCurrentDay] = useState('2021-03-20');
+  const [currentDay, setCurrentDay] = useState('2021-03-21');
 
-  // eslint-disable-next-line no-console
-  console.log(currentDay, '<----');
-  const handleMoving = (currentFriend) => {
-    navigation.navigate(APP_SCREEN.GIFTDETAIL, currentFriend);
+  const handleMoving = () => {
+    navigation.navigate(APP_SCREEN.GIFTDETAIL);
   };
 
   const vacation = { key: 'vacation', color: 'red', selectedDotColor: 'blue' };
@@ -62,36 +45,39 @@ const Home = () => {
             style={styles.calendar}
             current={Date()}
             minDate="2021-03-01"
-            onDayPress={(day) => { setCurrentDay((currentDate) => day.dateString); }}
-            onDayLongPress={(day) => { console.log('selected day', day); }}
+            onDayPress={(day) => { setCurrentDay(() => day.dateString); }}
             monthFormat="yyyy MM"
-            onMonthChange={(month) => { console.log('month changed', month); }}
-            // renderArrow={(direction) => {
-            //   // eslint-disable-next-line no-console
-            //   return (
-            //     <View>
-            //       <AppText content={`${direction === 'left' ? '<' : '>'}`} />
-            //     </View>
-            //   );
-            // }}
+            // renderArrow={(direction) => (
+            //   <View>
+            //     <>
+            //       {direction === 'left' ? (
+            //         <AppImage
+            //           uri={require('../../../assets/images/ic-arrow-left-calendar.png')}
+            //           styleImage={{
+            //             width: 7,
+            //             height: 15,
+            //           }}
+            //         />
+            //       ) : (
+            //         <AppImage
+            //           uri={require('../../../assets/images/ic-arrow-right-calendar.png')}
+            //           styleImage={{
+            //             width: 7,
+            //             height: 15,
+            //           }}
+            //         />
+            //       )}
+            //     </>
+            //   </View>
+            // )}
             // Do not show days of other months in month page. Default = false
+            disableArrowLeft
             hideExtraDays
             disableMonthChange
-            // It receive a callback can go back month
-            onPressArrowLeft={(subtractMonth) => subtractMonth()}
-            // Handler which gets executed when press arrow icon right.
-            //  It receive a callback can go next month
-            onPressArrowRight={(addMonth) => addMonth()}
-            // Disable left arrow. Default = false
-            // disableArrowLeft
-            // Disable right arrow. Default = false
-            // disableArrowRight
-            // Disable all touch events for disabled days. can be override
-            //  with disableTouchEvent in markedDates
             disableAllTouchEventsForDisabledDays
             // Replace default month and year title with custom one.
             //  the function receive a date as parameter.
-            renderHeader={(date) => { <AppText content="December 2019" />; }}
+            renderHeader={(date) => <AppText content="March 2021" size={18} color="dark" letterSpacing={1} />}
             // Enable the option to swipe between months. Default = false
             enableSwipeMonths
             markedDates={{
@@ -101,9 +87,24 @@ const Home = () => {
                 selected: true,
                 selectedColor: COLORS.PRIMARY_RED,
               },
-              '2021-03-21': { dots: [massage, workout], disabled: true },
+              // '2021-03-21': { dots: [massage, workout], disabled: true },
             }}
             markingType="multi-dot"
+            theme={{
+              calendarBackground: 'transparent',
+              textSectionTitleColor: COLORS.NEUTRAL_GRAY_40,
+              textSectionTitleDisabledColor: '#d9e1e8',
+              selectedDayBackgroundColor: '#00adf5',
+              selectedDayTextColor: '#ffffff',
+              todayTextColor: COLORS.NEUTRAL_DARK,
+              dayTextColor: COLORS.NEUTRAL_DARK,
+              arrowColor: COLORS.PRIMARY_RED,
+              disabledArrowColor: COLORS.PRIMARY_RED_50,
+              textDayFontWeight: '500',
+              textDayHeaderFontWeight: '500',
+              textDayFontSize: 14,
+              textDayHeaderFontSize: 14,
+            }}
 
           />
         </View>
@@ -115,15 +116,8 @@ const Home = () => {
       >
         <ScrollView>
           {
-            listFriends.map((f) => (
-              <TouchableWithoutFeedback
-                key={f.id}
-                onPress={() => handleMoving(f)}
-              >
-                <View>
-                  <AppFriendCard uri={f.avatar} mainName={f.name} subName={f.birthDay} />
-                </View>
-              </TouchableWithoutFeedback>
+            [1, 2, 3, 4, 5].map((e) => (
+              <AppFriendCard key={e} onPress={handleMoving} uri={images.defaultAvatar} mainName="Anthony sims" subName="17 July" />
             ))
           }
 

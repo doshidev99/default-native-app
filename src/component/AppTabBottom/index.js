@@ -54,7 +54,7 @@ const AppTabBottom = () => {
             <TouchableWithoutFeedback key={id} onPress={() => navigation.navigate(nameScreen)}>
               <View>
                 <AppImage
-                  styleImage={{ width: 32, height: 32 }}
+                  containerStyles={{ width: 32, height: 32 }}
                   uri={name === nameScreen ? iconActive : icon}
                 />
                 <AppText

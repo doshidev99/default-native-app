@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-
 import { COLORS } from '../../assets/styles';
 
 export default StyleSheet.create({
@@ -10,6 +9,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     borderBottomColor: COLORS.NEUTRAL_GRAY_15,
     paddingVertical: 10,
+    paddingHorizontal: 24,
     borderBottomWidth: 1,
   },
 

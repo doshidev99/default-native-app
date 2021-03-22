@@ -1,20 +1,22 @@
 import React from 'react';
 import {
-  View, Platform, TouchableWithoutFeedback,
+  View, TouchableWithoutFeedback,
 } from 'react-native';
 
 import PropTypes from 'prop-types';
 
 import { useNavigation } from '@react-navigation/native';
 
+import { isIos } from '../../utils';
+
 import AppImage from '../AppImage';
 import AppText from '../AppText';
+import AppDivider from '../AppDivider';
 
 import { images } from '../../assets/images';
-import styles from './styles';
 import { COLORS } from '../../assets/styles';
 
-// const flag = Platform.OS === 'ios';
+import styles from './styles';
 
 const AppHeader = ({ theme, isGoback, divider }) => {
   const navigation = useNavigation();
@@ -31,11 +33,10 @@ const AppHeader = ({ theme, isGoback, divider }) => {
     default: break;
   }
   return (
-    <View>
+    <View style={{ backgroundColor }}>
       <View style={[
         styles.container,
-        Platform.OS === 'ios' ? { paddingTop: 35 } : { paddingTop: 16 },
-        { paddingBottom: 9, backgroundColor },
+        isIos ? { paddingTop: 39 } : { paddingTop: 9 },
       ]}
       >
         <>
@@ -45,11 +46,11 @@ const AppHeader = ({ theme, isGoback, divider }) => {
                 <View style={{
                   position: 'absolute',
                   left: 18,
-                  top: 60,
+                  bottom: '50%',
                 }}
                 >
                   <AppImage
-                    styleImage={{ width: 9.5, height: 17.5 }}
+                    containerStyles={{ width: 9.5, height: 17.5 }}
                     uri={images.icArrowLeft}
                   />
                 </View>
@@ -58,25 +59,26 @@ const AppHeader = ({ theme, isGoback, divider }) => {
           }
         </>
 
-        <AppImage
-          styleImage={{ width: 50, height: 50 }}
-          uri={images.icHomeActive}
-        />
+        <View>
+          <AppImage
+            containerStyles={{ height: 31 }}
+            uri={images.icHomeActive}
+          />
 
-        <AppText
-          content="GreatGiftGiver"
-          color="dark"
-          size={10}
-          containerStyles={{ paddingTop: 4 }}
-        />
+          <AppText
+            content="GreatGiftGiver"
+            color="dark"
+            size={10}
+            containerStyles={{ paddingTop: 4 }}
+          />
+        </View>
+
       </View>
-      <>
-        {
-          divider && (
-            <View style={{ width: '100%', height: 0.2, backgroundColor: '#1C0404' }} />
-          )
-        }
-      </>
+      {
+        divider && (
+          <AppDivider />
+        )
+      }
     </View>
 
   );

@@ -1,14 +1,17 @@
 import React from 'react';
 import {
-  View,
+  View, Image,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import PropTypes from 'prop-types';
 
+import { isIos } from '../../utils';
+
 import { images } from '../../assets/images';
 
 import styles from './styles';
+import AppFlex from '../AppFlex';
 import AppImage from '../AppImage';
 import AppText from '../AppText';
 
@@ -17,8 +20,6 @@ const AppAvatar = (props) => {
     containerStyles,
     avatar, name, birthday, age,
   } = props;
-
-  const navigation = useNavigation();
 
   return (
     <View style={[
@@ -29,37 +30,42 @@ const AppAvatar = (props) => {
         <AppImage
           size="big"
           shape="circle"
+          resizeMode="contain"
           uri={avatar}
-          styleImage={{
-            backgroundColor: '#1C0404',
-          }}
+          containerStyles={{ backgroundColor: '#1C0404' }}
         />
 
-        <AppImage
-          styleImage={{ width: 20, height: 20, resizeMode: 'center' }}
-          uri={images.icCamera}
-          shape="circle"
-          resizeMode="center"
-          containerStyles={{
-            position: 'absolute',
-            right: -5,
-            top: 10,
-          }}
-          otherStyle={{
-            backgroundColor: '#E8E8E8',
-            borderWidth: 2,
-            borderColor: '#FFFFFF',
-          }}
-        />
+        {/* <View style={{
+          position: 'absolute',
+          right: -5,
+          top: 10,
+          backgroundColor: '#E8E8E8',
+          borderWidth: 2,
+          borderColor: '#FFF',
+        }}
+        >
+          <AppImage
+            uri={images.icCamera}
+            shape="contain"
+            resizeMode="center"
+            containerStyles={{ width: 20, height: 20 }}
+          />
+        </View> */}
 
       </View>
 
-      <AppText content={name} textAlign="center" size={20} />
-      <AppText content={birthday} textAlign="center" />
+      <AppText content={name} textAlign="center" size={20} color="dark" />
+      <AppText content={birthday} textAlign="center" color="gray" />
 
       <View style={styles.boxAge}>
         <AppImage uri={images.icCake} size="icon" />
-        <AppText content={`${age} years`} color="red" capitalize textAlign="center" />
+        <AppText
+          content={`${age} years`}
+          color="red"
+          capitalize
+          textAlign="center"
+          containerStyles={{ paddingLeft: 10 }}
+        />
       </View>
 
     </View>
@@ -70,8 +76,7 @@ export default AppAvatar;
 
 AppAvatar.propTypes = {
   containerStyles: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  // eslint-disable-next-line react/forbid-prop-types
-  avatar: PropTypes.any.isRequired,
+  avatar: Image.propTypes.source.isRequired,
   name: PropTypes.string,
   birthday: PropTypes.string,
   age: PropTypes.number,

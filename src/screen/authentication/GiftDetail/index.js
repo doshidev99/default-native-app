@@ -5,19 +5,28 @@ import { SceneMap, TabView, TabBar } from 'react-native-tab-view';
 import { images } from '../../../assets/images';
 import { COLORS } from '../../../assets/styles';
 
+import AppLayout from '../../../component/AppLayout';
 import AppAvatar from '../../../component/AppAvatar';
 import AppImage from '../../../component/AppImage';
 import AppText from '../../../component/AppText';
 import AppHeader from '../../../component/AppHeader';
 
-import styles from './styles';
+import PublicList from './PublicList';
 
-const FirstRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#ff4081' }} />
-);
+import styles from './styles';
 
 const SecondRoute = () => (
   <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
+);
+
+const renderLabel = ({ route, focused }) => (
+  <AppText
+    content={route.title}
+    uppercase
+    color={focused ? 'red' : 'gray55'}
+    size={13}
+  />
+
 );
 
 const GiftDetail = () => {
@@ -26,22 +35,17 @@ const GiftDetail = () => {
   const [index, setIndex] = useState(0);
 
   const routes = [
-    { id: 0, key: 'list', title: 'PUBLIC LIST' },
-    { id: 1, key: 'friends', title: 'LIST WITH FRIENDS' },
+    { id: 0, key: 'list', title: 'public list' },
+    { id: 1, key: 'friends', title: 'list with friends' },
   ];
 
   const renderScene = SceneMap({
-    list: FirstRoute,
+    list: PublicList,
     friends: SecondRoute,
   });
 
-  const handleRenderIndicator = (props) => {
-    // eslint-disable-next-line no-console
-    console.log(props, '<----');
-  };
-
   return (
-    <View style={[styles.container]}>
+    <AppLayout>
       <AppHeader divider isGoback />
       <AppAvatar
         avatar={images.defaultAvatar}
@@ -56,16 +60,14 @@ const GiftDetail = () => {
         renderTabBar={(props) => (
           <TabBar
             {...props}
-            indicatorStyle={styles.indicatorStyle}
             style={styles.tabBar}
-            renderLabel={({ route, focused }) => (
-              <AppText content={route.title} color={focused ? 'red' : 'gray55'} size={13} />
-            )}
-            renderIndicator={handleRenderIndicator}
+            labelStyle={styles.labelStyle}
+            indicatorStyle={[styles.indicatorStyle]}
+            renderLabel={renderLabel}
           />
         )}
       />
-    </View>
+    </AppLayout>
   );
 };
 

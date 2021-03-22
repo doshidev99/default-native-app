@@ -14,6 +14,6 @@ export default StyleSheet.create({
 
     borderColor: '#ECEBED',
     borderWidth: 1,
-    borderRadius: 2,
+    borderRadius: 4,
   },
 });

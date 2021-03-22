@@ -5,10 +5,11 @@ import {
 
 import PropTypes from 'prop-types';
 
-import AppText from '../AppText';
-import AppImage from '../AppImage';
+import { isIos } from '../../utils';
 
-import { COLORS, FONTS } from '../../assets/styles';
+import AppText from '../AppText';
+
+import { COLORS } from '../../assets/styles';
 
 import styles from './styles';
 
@@ -16,7 +17,7 @@ const AppButton = (props) => {
   const {
     width, height,
     content,
-    textColor,
+    color,
     textAlign,
     bold,
     size,
@@ -24,7 +25,7 @@ const AppButton = (props) => {
     uppercase,
     onPress,
     theme,
-    otherStyle,
+    containerStyles,
   } = props;
 
   let bgColor = COLORS.PRIMARY_RED;
@@ -49,9 +50,9 @@ const AppButton = (props) => {
   return (
     <>
       {
-        Platform.OS === 'ios' ? (
+        isIos ? (
           <TouchableHighlight
-            style={[styles.container, otherStyle, {
+            style={[styles.container, containerStyles, {
               width,
               height,
               backgroundColor: bgColor,
@@ -73,7 +74,7 @@ const AppButton = (props) => {
                 size={size}
                 textAlign={textAlign}
                 bold={bold}
-                color={textColor}
+                color={color}
                 uppercase={uppercase}
               />
             </View>
@@ -85,7 +86,7 @@ const AppButton = (props) => {
               <View
                 style={[
                   styles.container,
-                  otherStyle,
+                  containerStyles,
                   { backgroundColor: bgColor, width, height },
                 ]}
               >
@@ -95,7 +96,7 @@ const AppButton = (props) => {
                   size={size}
                   textAlign={textAlign}
                   bold={bold}
-                  color={textColor}
+                  color={color}
                   uppercase={uppercase}
                 />
               </View>
@@ -116,13 +117,13 @@ AppButton.propTypes = {
   beforePrefix: PropTypes.element,
 
   content: PropTypes.string,
-  textColor: PropTypes.string,
+  color: PropTypes.string,
   textAlign: PropTypes.string,
   size: PropTypes.number,
   uppercase: PropTypes.bool,
   bold: PropTypes.bool,
   onPress: PropTypes.func,
-  otherStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  containerStyles: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 AppButton.defaultProps = {
@@ -131,13 +132,13 @@ AppButton.defaultProps = {
   height: 48,
   beforePrefix: null,
   content: 'shop now',
-  textColor: COLORS.NEUTRAL_WHITE,
+  color: COLORS.NEUTRAL_WHITE,
   textAlign: 'center',
   uppercase: false,
   bold: false,
   size: 14,
   onPress: () => { },
-  otherStyle: {},
+  containerStyles: {},
 };
 
 export default memo(AppButton);

@@ -1,51 +1,50 @@
 import React from 'react';
-import {
-  View, Image, TouchableWithoutFeedback,
-} from 'react-native';
-
 import PropTypes from 'prop-types';
+import { Image, View, TouchableWithoutFeedback } from 'react-native';
 
 import { images } from '../../assets/images';
-
 import AppImage from '../AppImage';
 import AppText from '../AppText';
 import styles from './styles';
 
 const AppFriendCard = (props) => {
   const {
-    uri, mainName, subName, addon,
+    uri, mainName, subName, addon, onPress,
   } = props;
 
   return (
-    <View style={[styles.container]}>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.container}>
+        <View style={[styles.avatar]}>
+          <AppImage
+            uri={uri}
+            resizeMode="contain"
+            size="small"
+            shape="circle"
+            containerStyles={{ backgroundColor: '#1C0404' }}
+          />
+        </View>
 
-      <AppImage
-        containerStyles={[styles.avatar]}
-        uri={uri}
-        resizeMode="cover"
-        size="small"
-        shape="circle"
-        styleImage={[styles.bgImage]}
-      />
+        <View style={[styles.content]}>
+          <AppText
+            content={mainName}
+            color="dark"
+            size={16}
+          />
+          <AppText content={subName} color="gray" />
+        </View>
 
-      <View style={[styles.content]}>
-        <AppText
-          content={mainName}
-          color="dark"
-          size={16}
-        />
-        <AppText content={subName} color="gray" />
+        {
+          addon && (
+            <View style={styles.icon}>
+              <AppImage resizeMode="cover" size="icon" uri={images.icArrowRight} />
+            </View>
+          )
+        }
+
       </View>
+    </TouchableWithoutFeedback>
 
-      {
-        addon && (
-          <View style={styles.icon}>
-            <AppImage resizeMode="cover" size="icon" uri={images.icArrowRight} />
-          </View>
-        )
-      }
-
-    </View>
   );
 };
 
@@ -54,12 +53,14 @@ AppFriendCard.propTypes = {
   mainName: PropTypes.string,
   subName: PropTypes.string,
   addon: PropTypes.bool,
+  onPress: PropTypes.func,
 };
 
 AppFriendCard.defaultProps = {
   mainName: 'Anthony Sims',
   subName: '2nd August',
   addon: false,
+  onPress: () => { },
 };
 
 export default AppFriendCard;

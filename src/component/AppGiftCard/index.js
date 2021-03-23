@@ -13,8 +13,6 @@ import styles from './styles';
 
 const windowWidth = Dimensions.get('window').width;
 
-// eslint-disable-next-line no-console
-console.log(windowWidth, '<----');
 const AppGiftCard = (props) => {
   const {
     giftName, giftImage, isOwner, containerStyles, onPress,
@@ -27,6 +25,7 @@ const AppGiftCard = (props) => {
         styles.container,
         containerStyles,
         {
+          marginRight: '5%',
           width: `${windowWidth <= 375 ? '30%' : '28%'}`,
           height: 139,
         },

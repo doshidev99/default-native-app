@@ -9,4 +9,6 @@ export const APP_SCREEN = {
 
   GIFTDETAIL: 'GiftDetail',
   FRIENDGIFT: 'FRIENDGIFT',
+  CATALOG: 'CATALOG',
+  BRAND_CATALOG: 'BRAND_CATALOG',
 };

@@ -50,7 +50,7 @@ const UserAvatar = (props) => {
 
       </View>
 
-      <AppText content={name} textAlign="center" size={20} color="dark" />
+      <AppText content={name} font="semi" textAlign="center" size={20} color="dark" />
       <AppText content={birthday} textAlign="center" color="gray" />
 
       <View style={styles.boxAge}>

@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 
 import PropTypes from 'prop-types';
 
-import { COLORS } from '../../assets/styles';
+import { COLORS, FONTS } from '../../assets/styles';
 
 const AppText = (props) => {
   const {
@@ -16,7 +16,7 @@ const AppText = (props) => {
     size,
     color,
     textAlign,
-    fontFamily,
+    font,
     letterSpacing,
     containerStyles,
     otherStyle,
@@ -72,6 +72,21 @@ const AppText = (props) => {
     default: break;
   }
 
+  let fontFamily;
+
+  switch (font) {
+    case 'semi':
+      fontFamily = FONTS.semiBold;
+      break;
+    case 'bold':
+      textColor = FONTS.bold;
+      break;
+    case 'ultraLight':
+      textColor = FONTS.ultraLight;
+      break;
+    default: break;
+  }
+
   return (
 
     <View style={[containerStyles]}>
@@ -104,7 +119,7 @@ AppText.propTypes = {
   size: PropTypes.number,
   color: PropTypes.string,
   textAlign: PropTypes.string,
-  fontFamily: PropTypes.string,
+  font: PropTypes.string,
   letterSpacing: PropTypes.number,
   containerStyles: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   otherStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
@@ -118,9 +133,9 @@ AppText.defaultProps = {
   bold: false,
   content: 'text',
   size: 13,
-  color: '',
+  color: 'ultraLight',
   textAlign: 'left',
-  fontFamily: null,
+  font: null,
   letterSpacing: 0.5,
   containerStyles: {},
   otherStyle: {},

@@ -69,6 +69,7 @@ const AppHeader = ({ theme, isGoback, divider }) => {
             content="GreatGiftGiver"
             color="dark"
             size={10}
+            bold
             containerStyles={{ paddingTop: 4 }}
           />
         </View>

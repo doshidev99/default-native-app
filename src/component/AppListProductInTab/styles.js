@@ -3,8 +3,12 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   flexBox: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    flexWrap: 'nowrap',
     alignItems: 'center',
+  },
+
+  flexTitle: {
+    paddingBottom: 10,
+    justifyContent: 'space-between',
   },
 });

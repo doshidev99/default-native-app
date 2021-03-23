@@ -9,50 +9,50 @@ import AppText from '../AppText';
 
 import styles from './styles';
 
-const AppListProductInTab = ({ data, friend, handleMoving }) => (
-  <>
-    <View style={[styles.flexBox, {
-      paddingTop: 24,
-      paddingBottom: 10,
-    }]}
-    >
-      <AppText content={`List with ${friend}`} size={17} bold letterSpacing={0.61} color="dark" />
+const AppListProductInTab = ({
+  data, title, handleMoving, containerStyles,
+}) => (
+  <View style={containerStyles}>
+    <View style={[styles.flexBox, styles.flexTitle]}>
+      <AppText content={title} size={17} bold letterSpacing={0.61} color="dark" />
       <>
         {
-            data.length >= 3 && (
-              <AppText content="See more" size={12} color="red" />
-            )
-          }
+          data.length >= 3 && (
+            <AppText content="See more" size={12} color="red" />
+          )
+        }
       </>
     </View>
 
-    <View style={[styles.flexBox, { flexWrap: 'nowrap' }]}>
+    <View style={[styles.flexBox]}>
       {
-          data.map((e) => (
-            <AppGiftCard
-              key={e}
-              onPress={handleMoving}
-              giftImage={images.bike}
-              giftName="CRB 2000"
-            />
+        data.map((e) => (
+          <AppGiftCard
+            key={e}
+            onPress={handleMoving}
+            giftImage={images.bike}
+            giftName="CRB 2000"
+          />
 
-          ))
-        }
+        ))
+      }
     </View>
-  </>
+  </View>
 
 );
 
 AppListProductInTab.propTypes = {
   data: PropTypes.instanceOf(Array),
-  friend: PropTypes.string,
+  title: PropTypes.string,
   handleMoving: PropTypes.func,
+  containerStyles: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 AppListProductInTab.defaultProps = {
   data: [],
-  friend: '',
+  title: '',
   handleMoving: () => { },
+  containerStyles: {},
 };
 
 export default AppListProductInTab;

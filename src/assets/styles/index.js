@@ -28,10 +28,7 @@ export const COLORS = {
 };
 
 export const FONTS = {
-  default: 'aileron-thin',
-  black: 'aileron-Black',
-  light: 'aileron-light',
-  regular: 'aileron-regular',
-  semibold: 'aileron-semibold',
-  ultralight: 'aileron-ultralight',
+  ultraLight: 'Aileron-UltraLight',
+  semiBold: 'Aileron-SemiBold',
+  bold: 'Aileron-Bold',
 };

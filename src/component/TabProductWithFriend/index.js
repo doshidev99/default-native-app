@@ -23,8 +23,8 @@ const TabProductWithFriend = () => {
         marginBottom: 40,
       }}
       >
-        <AppListProductInTab data={[1, 2, 3]} friend="Janiel" handleMoving={handleMoving} />
-        <AppListProductInTab data={[1]} friend="Patrick" handleMoving={handleMoving} />
+        <AppListProductInTab data={[1, 2, 3]} friend="List with Janiel" handleMoving={handleMoving} />
+        <AppListProductInTab data={[1]} friend="List with Patrick" handleMoving={handleMoving} />
 
       </ScrollView>
     </AppLayout>

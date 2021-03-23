@@ -5,7 +5,7 @@ import { SceneMap, TabView, TabBar } from 'react-native-tab-view';
 import { images } from '../../../assets/images';
 
 import AppLayout from '../../../component/AppLayout';
-import AppAvatar from '../../../component/UserAvatar';
+import UserAvatar from '../../../component/UserAvatar';
 import AppText from '../../../component/AppText';
 import AppHeader from '../../../component/AppHeader';
 
@@ -42,7 +42,7 @@ const GiftDetail = () => {
   return (
     <AppLayout>
       <AppHeader divider isGoback />
-      <AppAvatar
+      <UserAvatar
         avatar={images.defaultAvatar}
         containerStyles={styles.containerAvatar}
       />

@@ -2,20 +2,16 @@ import React from 'react';
 import {
   View, Image,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
 import PropTypes from 'prop-types';
-
-import { isIos } from '../../utils';
 
 import { images } from '../../assets/images';
 
 import styles from './styles';
-import AppFlex from '../AppFlex';
 import AppImage from '../AppImage';
 import AppText from '../AppText';
 
-const AppAvatar = (props) => {
+const UserAvatar = (props) => {
   const {
     containerStyles,
     avatar, name, birthday, age,
@@ -72,9 +68,9 @@ const AppAvatar = (props) => {
   );
 };
 
-export default AppAvatar;
+export default UserAvatar;
 
-AppAvatar.propTypes = {
+UserAvatar.propTypes = {
   containerStyles: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   avatar: Image.propTypes.source.isRequired,
   name: PropTypes.string,
@@ -82,7 +78,7 @@ AppAvatar.propTypes = {
   age: PropTypes.number,
 };
 
-AppAvatar.defaultProps = {
+UserAvatar.defaultProps = {
   containerStyles: {},
   name: 'Katie Yates',
   birthday: '2nd August',

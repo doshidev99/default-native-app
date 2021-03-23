@@ -1,23 +1,18 @@
 import React, { memo, useState } from 'react';
-import { useWindowDimensions, View } from 'react-native';
+import { useWindowDimensions } from 'react-native';
 import { SceneMap, TabView, TabBar } from 'react-native-tab-view';
 
 import { images } from '../../../assets/images';
-import { COLORS } from '../../../assets/styles';
 
 import AppLayout from '../../../component/AppLayout';
-import AppAvatar from '../../../component/AppAvatar';
-import AppImage from '../../../component/AppImage';
+import AppAvatar from '../../../component/UserAvatar';
 import AppText from '../../../component/AppText';
 import AppHeader from '../../../component/AppHeader';
 
-import PublicList from './PublicList';
+import TabPublicList from '../../../component/TabPublicList';
+import TabProductWithFriend from '../../../component/TabProductWithFriend';
 
 import styles from './styles';
-
-const SecondRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
-);
 
 const renderLabel = ({ route, focused }) => (
   <AppText
@@ -40,8 +35,8 @@ const GiftDetail = () => {
   ];
 
   const renderScene = SceneMap({
-    list: PublicList,
-    friends: SecondRoute,
+    list: TabPublicList,
+    friends: TabProductWithFriend,
   });
 
   return (

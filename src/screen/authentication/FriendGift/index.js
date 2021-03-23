@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import {
-  View, Dimensions, Modal,
+  View, Dimensions,
 } from 'react-native';
 
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
-import PropTypes, { object } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import AppModal from '../../../component/AppModal';
 import AppLayout from '../../../component/AppLayout';
@@ -14,7 +14,6 @@ import AppImage from '../../../component/AppImage';
 import AppButton from '../../../component/AppButton';
 import AppDivider from '../../../component/AppDivider';
 import AppText from '../../../component/AppText';
-import { useModal } from '../../../hooks/useModal';
 
 import { images } from '../../../assets/images';
 import styles from './styles';
@@ -36,14 +35,16 @@ const CarouselCardItem = () => (
 
 const FriendGift = () => {
   const [currentActive, setCurrentActive] = useState(0);
-  const [modalOpen, toggle] = useModal(false);
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const toggle = () => setModalOpen((preState) => !preState);
 
   const data = [1, 2, 3, 4];
 
   return (
     <AppLayout>
       <AppHeader />
-
       <AppModal
         visible={modalOpen}
         onCancel={toggle}

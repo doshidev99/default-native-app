@@ -4,24 +4,24 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { APP_SCREEN } from '../../../../navigation/screenTypes';
+import { APP_SCREEN } from '../../navigation/screenTypes';
 
-import AppLayout from '../../../../component/AppLayout';
-import AppInputSearch from '../../../../component/AppInputSearch';
-import AppGiftCard from '../../../../component/AppGiftCard';
+import AppLayout from '../AppLayout';
+import AppInputSearch from '../AppInputSearch';
+import AppGiftCard from '../AppGiftCard';
 
 import styles from './styles';
-import { images } from '../../../../assets/images';
+import { images } from '../../assets/images';
 
-const PublicList = () => {
+const TabPublicList = () => {
   const navigation = useNavigation();
 
   const handleMoving = () => {
     navigation.navigate(APP_SCREEN.FRIENDGIFT);
   };
   return (
-    <AppLayout containerStyles={{ paddingHorizontal: 16, paddingTop: 20 }}>
-      <AppInputSearch />
+    <AppLayout containerStyles={styles.container}>
+      <AppInputSearch placeholder="Search gift" />
       <ScrollView style={{
         marginTop: 12,
         marginBottom: 40,
@@ -46,10 +46,10 @@ const PublicList = () => {
   );
 };
 
-PublicList.propTypes = {
+TabPublicList.propTypes = {
 };
 
-PublicList.defaultProps = {
+TabPublicList.defaultProps = {
 };
 
-export default memo(PublicList);
+export default memo(TabPublicList);

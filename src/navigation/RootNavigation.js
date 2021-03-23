@@ -33,7 +33,7 @@ const RootNavigator = () => {
 
   return (
     <>
-      <Stack.Navigator headerMode="none" initialRouteName={APP_SCREEN.FRIENDGIFT}>
+      <Stack.Navigator headerMode="none" initialRouteName={APP_SCREEN.GIFTDETAIL}>
         {
           !token ? (
             <Stack.Screen name={APP_SCREEN.LOGIN} component={Login} />

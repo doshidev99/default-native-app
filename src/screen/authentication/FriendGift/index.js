@@ -7,12 +7,14 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import PropTypes, { object } from 'prop-types';
 
+import AppModal from '../../../component/AppModal';
 import AppLayout from '../../../component/AppLayout';
 import AppHeader from '../../../component/AppHeader';
 import AppImage from '../../../component/AppImage';
 import AppButton from '../../../component/AppButton';
 import AppDivider from '../../../component/AppDivider';
 import AppText from '../../../component/AppText';
+import { useModal } from '../../../hooks/useModal';
 
 import { images } from '../../../assets/images';
 import styles from './styles';
@@ -34,7 +36,7 @@ const CarouselCardItem = () => (
 
 const FriendGift = () => {
   const [currentActive, setCurrentActive] = useState(0);
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalOpen, toggle] = useModal(false);
 
   const data = [1, 2, 3, 4];
 
@@ -42,47 +44,12 @@ const FriendGift = () => {
     <AppLayout>
       <AppHeader />
 
-      <Modal
-        animationType="none"
-        transparent
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={{
-          flex: 1,
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: 'rgba(0, 0, 0, 0.4)',
-        }}
-        >
-          <View style={{
-            backgroundColor: '#FFFFFF',
-            height: 271,
-
-            borderRadius: 8,
-            alignItems: 'center',
-            paddingVertical: 36,
-            paddingHorizontal: 24,
-            marginHorizontal: 27,
-          }}
-          >
-            <AppText content="Congratulation!" color="dark" bold uppercase size={20} />
-            <AppText
-              content="You product is added, would you like to buy something else"
-              size={16}
-              color="gray"
-              textAlign="center"
-              containerStyles={{ paddingTop: 21, paddingBottom: 32 }}
-            />
-            <AppButton content="YES, PLEASE" width={272} uppercase bold color="white" />
-            <AppButton containerStyles={{ marginVertical: 20 }} content="NOT NOW" width={272} theme="transparent" uppercase bold color="dark" />
-
-          </View>
-        </View>
-      </Modal>
+      <AppModal
+        visible={modalOpen}
+        onCancel={toggle}
+        title="Congratulation!"
+        description="You product is added, would you like to buy something else"
+      />
 
       <View style={{
         flex: 1,
@@ -101,24 +68,12 @@ const FriendGift = () => {
           <Pagination
             dotsLength={data.length}
             activeDotIndex={currentActive}
-            containerStyle={{
-              position: 'absolute',
-              bottom: '-10%',
-              alignSelf: 'center',
-            }}
-            dotStyle={{
-              width: 8,
-              height: 8,
-              borderRadius: 5,
-              backgroundColor: '#FF1515',
-            }}
-            inactiveDotStyle={{
+            containerStyle={styles.pContainerStyle}
+            dotStyle={styles.dotStyle}
+            inactiveDotStyle={
               // Define styles for inactive dots here
-              width: 6,
-              height: 6,
-              borderRadius: 5,
-              backgroundColor: '#FF8787',
-            }}
+              styles.inactiveDotStyle
+            }
             inactiveDotOpacity={0.4}
             inactiveDotScale={0.6}
           />
@@ -136,7 +91,11 @@ const FriendGift = () => {
             <AppText content="Information" size={16} color="dark" letterSpacing={0.5} />
             <AppText
               containerStyles={{ paddingTop: 8 }}
-              content="Unique: Fashionable Trendy Sleeveless TShirt has pocket inside to hold your mobile phone and wire loops for Headset wire. Best for Jogging, Sports and Gym (Mobile won’t fall off since your mobile is inside the jacket)"
+              content="Unique: Fashionable Trendy
+               Sleeveless TShirt has pocket inside
+               to hold your mobile phone and wire loops
+               for Headset wire. Best for Jogging, Sports and Gym
+              (Mobile won’t fall off since your mobile is inside the jacket)"
               color="gray"
             />
 
@@ -144,8 +103,21 @@ const FriendGift = () => {
         </View>
 
         <View style={{ flex: 20, paddingHorizontal: 20 }}>
-          <AppButton content="MODIFIER" uppercase bold color="white" />
-          <AppButton content="SUPPRIMER" containerStyles={{ marginTop: 14 }} theme="blue" uppercase bold color="white" />
+          <AppButton
+            content="MODIFIER"
+            uppercase
+            bold
+            color="white"
+            onPress={toggle}
+          />
+          <AppButton
+            content="SUPPRIMER"
+            containerStyles={{ marginTop: 14 }}
+            theme="blue"
+            uppercase
+            bold
+            color="white"
+          />
         </View>
       </View>
 
@@ -157,14 +129,6 @@ FriendGift.propTypes = {
 };
 
 FriendGift.defaultProps = {
-};
-
-CarouselCardItem.propTypes = {
-  item: PropTypes.instanceOf(object),
-};
-
-CarouselCardItem.defaultProps = {
-  item: {},
 };
 
 export default FriendGift;

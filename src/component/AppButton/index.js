@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import {
-  TouchableHighlight, View, Platform, TouchableNativeFeedback,
+  TouchableHighlight, View, TouchableNativeFeedback,
 } from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -52,6 +52,7 @@ const AppButton = (props) => {
       {
         isIos ? (
           <TouchableHighlight
+            underlayColor={bgColor}
             style={[styles.container, containerStyles, {
               width,
               height,
@@ -82,7 +83,7 @@ const AppButton = (props) => {
           </TouchableHighlight>
         )
           : (
-            <TouchableNativeFeedback>
+            <TouchableNativeFeedback onPress={onPress}>
               <View
                 style={[
                   styles.container,

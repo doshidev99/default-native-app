@@ -18,7 +18,7 @@ const AppListProductInTab = ({
       <>
         {
           data.length >= 3 && (
-            <AppText content="See more" size={12} color="red" />
+            <AppText content="See more" size={12} font="semi" color="red" />
           )
         }
       </>
@@ -26,14 +26,14 @@ const AppListProductInTab = ({
 
     <View style={[styles.flexBox]}>
       {
-        data.map((e) => (
+        data.map((e, index) => (
           <AppGiftCard
             key={e}
+            index={index}
             onPress={handleMoving}
             giftImage={images.bike}
             giftName="CRB 2000"
           />
-
         ))
       }
     </View>

@@ -11,6 +11,8 @@
     "my-android": "adb devices && react-native run-android --deviceId=d413260"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-community/netinfo": "^6.0.0",
     "@react-navigation/bottom-tabs": "^5.11.8",
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
@@ -26,6 +28,8 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-pager-view": "^5.1.2",
     "react-native-reanimated": "~1.13.0",
+    "react-native-root-siblings": "^4.1.0",
+    "react-native-root-toast": "^3.2.1",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^2.18.1",
     "react-native-snap-carousel": "^3.9.1",

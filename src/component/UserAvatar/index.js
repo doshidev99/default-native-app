@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Image,
+  View, Image, ViewPropTypes,
 } from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -51,11 +51,12 @@ const UserAvatar = (props) => {
       </View>
 
       <AppText content={name} font="semi" textAlign="center" size={20} color="dark" />
-      <AppText content={birthday} textAlign="center" color="gray" />
+      <AppText content={birthday} textAlign="center" color="gray" font="thin" />
 
       <View style={styles.boxAge}>
         <AppImage uri={images.icCake} size="icon" />
         <AppText
+          font="semi"
           content={`${age} years`}
           color="red"
           capitalize
@@ -71,7 +72,7 @@ const UserAvatar = (props) => {
 export default UserAvatar;
 
 UserAvatar.propTypes = {
-  containerStyles: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  containerStyles: ViewPropTypes.style,
   avatar: Image.propTypes.source.isRequired,
   name: PropTypes.string,
   birthday: PropTypes.string,

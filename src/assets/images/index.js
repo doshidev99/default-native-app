@@ -1,11 +1,5 @@
 /* eslint-disable global-require */
 const images = {
-  icGiver: require('./ic-giver.png'),
-  icGiverActive: require('./ic-giver-active.png'),
-  icLister: require('./ic-lister.png'),
-  icListerActive: require('./ic-lister-active.png'),
-  icSetting: require('./ic-setting.png'),
-  icSettingActive: require('./ic-setting-active.png'),
   icHome: require('./ic-home.png'),
   icHomeActive: require('./ic-home-active.png'),
 

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import {
+  Text, View, ViewPropTypes,
+} from 'react-native';
 
 import PropTypes from 'prop-types';
 
@@ -11,11 +13,12 @@ const AppText = (props) => {
     lowercase,
     capitalize,
     normal,
+    medium,
     bold,
     content,
     size,
     color,
-    textAlign,
+    align,
     font,
     letterSpacing,
     containerStyles,
@@ -34,6 +37,9 @@ const AppText = (props) => {
 
   if (normal) {
     styleFromProps = { ...styleFromProps, fontWeight: 'normal' };
+  }
+  if (medium) {
+    styleFromProps = { ...styleFromProps, fontWeight: '500' };
   }
   if (bold) {
     styleFromProps = { ...styleFromProps, fontWeight: 'bold' };
@@ -79,10 +85,13 @@ const AppText = (props) => {
       fontFamily = FONTS.semiBold;
       break;
     case 'bold':
-      textColor = FONTS.bold;
+      fontFamily = FONTS.bold;
       break;
     case 'ultraLight':
-      textColor = FONTS.ultraLight;
+      fontFamily = FONTS.ultraLight;
+      break;
+    case 'thin':
+      fontFamily = FONTS.thin;
       break;
     default: break;
   }
@@ -91,13 +100,14 @@ const AppText = (props) => {
 
     <View style={[containerStyles]}>
       <Text
+        {...props}
         style={[
           styleFromProps,
           otherStyle,
           {
             fontSize: size,
             color: textColor,
-            textAlign,
+            textAlign: align,
             fontFamily,
             letterSpacing,
           },
@@ -114,15 +124,16 @@ AppText.propTypes = {
   lowercase: PropTypes.bool,
   capitalize: PropTypes.bool,
   normal: PropTypes.bool,
+  medium: PropTypes.bool,
   bold: PropTypes.bool,
   content: PropTypes.string,
   size: PropTypes.number,
   color: PropTypes.string,
-  textAlign: PropTypes.string,
+  align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
   font: PropTypes.string,
   letterSpacing: PropTypes.number,
-  containerStyles: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  otherStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  containerStyles: ViewPropTypes.style,
+  otherStyle: Text.propTypes.style,
 };
 
 AppText.defaultProps = {
@@ -130,12 +141,13 @@ AppText.defaultProps = {
   lowercase: false,
   capitalize: false,
   normal: false,
+  medium: false,
   bold: false,
   content: 'text',
   size: 13,
-  color: 'ultraLight',
-  textAlign: 'left',
-  font: null,
+  color: 'dark',
+  align: 'left',
+  font: 'regular',
   letterSpacing: 0.5,
   containerStyles: {},
   otherStyle: {},

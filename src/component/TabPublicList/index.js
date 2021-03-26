@@ -13,6 +13,8 @@ import AppGiftCard from '../AppGiftCard';
 import styles from './styles';
 import { images } from '../../assets/images';
 
+const data = [1, 2, 3, 4, 5];
+
 const TabPublicList = () => {
   const navigation = useNavigation();
 
@@ -22,16 +24,18 @@ const TabPublicList = () => {
   return (
     <AppLayout containerStyles={styles.container}>
       <AppInputSearch placeholder="Search gift" />
-      <ScrollView style={{
-        marginTop: 12,
-        marginBottom: 40,
-      }}
+      <ScrollView
+        style={{
+          marginTop: 12,
+          marginBottom: 40,
+        }}
       >
-        <View style={styles.flexBox}>
+        <View style={[styles.flexBox]}>
           {
-            [1, 2, 3, 4].map((e) => (
+            data.map((e, index) => (
               <AppGiftCard
                 key={e}
+                index={index}
                 onPress={handleMoving}
                 giftImage={images.defaultAvatar}
                 giftName="Safari T-Shirt"

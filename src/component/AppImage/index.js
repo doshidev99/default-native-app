@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Image, View } from 'react-native';
+import { Image, View, ViewPropTypes } from 'react-native';
 
 import PropTypes from 'prop-types';
 
@@ -12,6 +12,7 @@ const AppImage = (props) => {
     size,
     resizeMode,
     shape,
+    fade,
   } = props;
 
   let sizeImage;
@@ -72,8 +73,13 @@ const AppImage = (props) => {
     ]}
     >
       <Image
-        style={[{ resizeMode, width: '100%', height: '100%' }, styleRadius]}
+        style={[{
+          resizeMode,
+          width: '100%',
+          height: '100%',
+        }, styleRadius]}
         source={uri}
+        fadeDuration={fade && 0}
       />
 
     </View>
@@ -82,10 +88,11 @@ const AppImage = (props) => {
 
 AppImage.propTypes = {
   uri: Image.propTypes.source,
-  containerStyles: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  containerStyles: ViewPropTypes.style,
   size: PropTypes.oneOf(['small', 'medium', 'big', 'icon', 'special-icon', '']),
   resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch', 'repeat', 'center']),
   shape: PropTypes.string,
+  fade: PropTypes.bool,
 };
 
 AppImage.defaultProps = {
@@ -94,6 +101,7 @@ AppImage.defaultProps = {
   size: '',
   resizeMode: 'contain',
   shape: null,
+  fade: false,
 };
 
 export default memo(AppImage);

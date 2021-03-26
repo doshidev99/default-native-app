@@ -29,24 +29,31 @@ const AppModal = ({
           containerStyles={{ paddingTop: 21, paddingBottom: isIos ? 32 : 22 }}
         />
         <AppButton
-          content={textApply}
           width={272}
           height={40}
-          uppercase
-          bold
-          color="white"
-        />
+        >
+          <AppText
+            otherStyle={styles.text}
+            content={textApply}
+            uppercase
+            bold
+            color="white"
+          />
+        </AppButton>
         <AppButton
           containerStyles={{ marginTop: 20 }}
-          content={textCancel}
           width={272}
           height={40}
           theme="transparent"
-          uppercase
-          bold
-          color="dark"
           onPress={onCancel}
-        />
+        >
+          <AppText
+            content={textCancel}
+            uppercase
+            bold
+            color="dark"
+          />
+        </AppButton>
       </View>
     </View>
   </Modal>

@@ -31,4 +31,6 @@ export const FONTS = {
   ultraLight: 'Aileron-UltraLight',
   semiBold: 'Aileron-SemiBold',
   bold: 'Aileron-Bold',
+  thin: 'Aileron-Thin',
+  regular: 'Aileron-Regular',
 };

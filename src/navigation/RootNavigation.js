@@ -4,25 +4,29 @@ import SplashScreen from 'react-native-splash-screen';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Login from '../screen/unAuthentication/Login';
+import LoginScreen from '../screen/LoginScreen';
 
 import { APP_SCREEN } from './screenTypes';
 
-import Home from '../screen/authentication/Home';
-import Catalog from '../screen/authentication/Catalog';
-import Setting from '../screen/authentication/Setting';
-import GiftDetail from '../screen/authentication/GiftDetail';
-import FriendGift from '../screen/authentication/FriendGift';
+import HomeScreen from '../screen/HomeScreen';
+import ListerScreen from '../screen/ListerScreen';
+import Setting from '../screen/Setting';
+import GiftDetail from '../screen/GiftDetail';
+import FriendGift from '../screen/FriendGift';
+import BrandCatalog from '../screen/BrandCatalog';
+import GiverSuggest from '../screen/GiverSuggest';
 
 const Stack = createStackNavigator();
 
 const StackAuthentication = [
-  { name: APP_SCREEN.HOME, component: Home },
-  { name: APP_SCREEN.LISTER, component: Catalog },
-  { name: APP_SCREEN.GIVER, component: Home },
+  { name: APP_SCREEN.HOME, component: HomeScreen },
+  { name: APP_SCREEN.LISTER, component: ListerScreen },
+  { name: APP_SCREEN.GIVER, component: HomeScreen },
   { name: APP_SCREEN.SETTING, component: Setting },
   { name: APP_SCREEN.GIFTDETAIL, component: GiftDetail },
   { name: APP_SCREEN.FRIENDGIFT, component: FriendGift },
+  { name: APP_SCREEN.BRAND_CATALOG, component: BrandCatalog },
+  { name: APP_SCREEN.GIVER_SUGGEST, component: GiverSuggest },
 ];
 
 const RootNavigator = () => {
@@ -37,7 +41,7 @@ const RootNavigator = () => {
       <Stack.Navigator headerMode="none" initialRouteName={APP_SCREEN.HOME}>
         {
           !token ? (
-            <Stack.Screen name={APP_SCREEN.LOGIN} component={Login} />
+            <Stack.Screen name={APP_SCREEN.LOGIN} component={LoginScreen} />
           ) : (
             <>
               {

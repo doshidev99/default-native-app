@@ -8,6 +8,7 @@ import styles from './styles';
 import AppText from '../AppText';
 
 import AppImage from '../AppImage';
+import { images } from '../../assets/images';
 
 const AppCatalog = (props) => {
   const {
@@ -27,6 +28,7 @@ const AppCatalog = (props) => {
 
       <View style={styles.flexBox}>
         <AppText
+          font="semi"
           uppercase
           content={catalog}
           size={20}
@@ -44,14 +46,13 @@ const AppCatalog = (props) => {
         />
         <AppImage
           uri={imageCatalog}
-          styleImage={{
-            width: 72,
-          }}
           containerStyles={{
             position: 'absolute',
             right: 10,
             top: 5,
-            bottom: 0,
+            bottom: '-5%',
+
+            width: 72,
             overflow: 'hidden',
           }}
         />
@@ -70,7 +71,7 @@ AppCatalog.propTypes = {
 };
 
 AppCatalog.defaultProps = {
-  imageCatalog: null,
+  imageCatalog: images.defaultAvatar,
   catalog: 'new in',
   bgColor: '#D0D0FF',
   bgImage: '#9595F1',

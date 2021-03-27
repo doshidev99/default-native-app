@@ -1,5 +1,6 @@
-import { createStackNavigator } from '@react-navigation/stack';
 import React, { memo } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import BrandCatalog from '../screen/BrandCatalog';
 import FriendGift from '../screen/FriendGift';
 import GiftDetail from '../screen/GiftDetail';

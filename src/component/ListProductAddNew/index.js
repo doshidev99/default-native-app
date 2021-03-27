@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 
 import PropTypes from 'prop-types';
+import { useNavigation } from '@react-navigation/native';
 
 import { images } from '../../assets/images';
 
@@ -14,13 +15,13 @@ import AppBoxAddImage from '../AppBoxAddImage';
 import styles from './styles';
 import { APP_SCREEN } from '../../navigation/screenTypes';
 
-import { navigation } from '../../utils';
-
 const ListProductAddNew = ({ data, title, containerStyles }) => {
   const [newProduct, setNewProduct] = useState([]);
 
+  const navigation = useNavigation();
+
   const addNewProduct = () => {
-    // setNewProduct([...newProduct, Math.random()]);
+    console.log('addNewProduct');
     navigation.navigate(APP_SCREEN.BRAND_CATALOG);
   };
 

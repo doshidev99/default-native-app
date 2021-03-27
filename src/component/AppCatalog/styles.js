@@ -7,7 +7,7 @@ export default StyleSheet.create({
     borderRadius: 4,
 
     maxHeight: 124,
-    marginBottom: 16,
+    marginTop: 16,
   },
 
   flexBox: {

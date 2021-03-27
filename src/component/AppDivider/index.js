@@ -1,7 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
 
-import PropTypes from 'prop-types';
 import { isIos } from '../../utils';
 
 const AppDivider = ({ containerStyles }) => (
@@ -12,7 +11,7 @@ const AppDivider = ({ containerStyles }) => (
 );
 
 AppDivider.propTypes = {
-  containerStyles: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  containerStyles: ViewPropTypes.style,
 };
 
 AppDivider.defaultProps = {

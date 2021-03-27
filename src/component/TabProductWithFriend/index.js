@@ -19,13 +19,12 @@ const TabProductWithFriend = () => {
     <AppLayout containerStyles={styles.container}>
       <AppInputSearch />
       <ScrollView style={{
-        marginTop: 12,
+        marginTop: 24,
         marginBottom: 40,
       }}
       >
-        <AppListProductInTab data={[1, 2, 3]} friend="List with Janiel" handleMoving={handleMoving} />
-        <AppListProductInTab data={[1]} friend="List with Patrick" handleMoving={handleMoving} />
-
+        <AppListProductInTab data={[1, 2, 3]} title="List with Janiel" handleMoving={handleMoving} />
+        <AppListProductInTab data={[1, 2]} containerStyles={{ paddingTop: 14 }} title="List with Patrick" handleMoving={handleMoving} />
       </ScrollView>
     </AppLayout>
   );

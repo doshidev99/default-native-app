@@ -27,11 +27,12 @@ const AppFriendCard = (props) => {
 
         <View style={[styles.content]}>
           <AppText
+            font="semi"
             content={mainName}
             color="dark"
             size={16}
           />
-          <AppText content={subName} color="gray" />
+          <AppText content={subName} font="thin" color="gray" />
         </View>
 
         {

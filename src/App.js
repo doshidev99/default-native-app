@@ -1,35 +1,25 @@
+import React from 'react';
 import 'react-native-gesture-handler';
 
-import React, { Suspense } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 import {
-  View,
   StyleSheet,
-  ActivityIndicator,
 } from 'react-native';
 
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Provider } from 'react-redux';
-
-import store from './redux/rootSaga';
-
 import AppContainer from './navigation/AppContainer';
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-});
+import { COLORS } from './assets/styles';
 
 export default function App() {
+  const styles = StyleSheet.create({
+    root: {
+      flex: 1,
+      backgroundColor: COLORS.NEUTRAL_GRAY_5,
+    },
+  });
   return (
-    <SafeAreaProvider>
-      <Provider store={store}>
-        <Suspense fallback={<ActivityIndicator size="big" />}>
-          <View style={styles.root}>
-            <AppContainer />
-          </View>
-        </Suspense>
-      </Provider>
+    <SafeAreaProvider style={styles.root}>
+      <AppContainer />
     </SafeAreaProvider>
   );
 }

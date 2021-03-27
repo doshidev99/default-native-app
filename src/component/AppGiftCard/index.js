@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Image, Dimensions, TouchableWithoutFeedback,
+  View, Image, Dimensions, TouchableWithoutFeedback, ViewPropTypes,
 } from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -16,6 +16,7 @@ const windowWidth = Dimensions.get('window').width;
 const AppGiftCard = (props) => {
   const {
     giftName, giftImage, isOwner, containerStyles, onPress,
+    index,
   } = props;
 
   return (
@@ -25,8 +26,9 @@ const AppGiftCard = (props) => {
         styles.container,
         containerStyles,
         {
-          marginRight: '5%',
-          width: `${windowWidth <= 375 ? '30%' : '28%'}`,
+          marginRight: ((index + 1) % 3) ? 10 : 0,
+          width: (windowWidth - 32 - 20) / 3,
+          // ( 100 % - sum_spacing ) / countItem
           height: 139,
         },
       ]}
@@ -37,14 +39,16 @@ const AppGiftCard = (props) => {
               width: '100%',
               height: '80%',
             }}
+            resizeMode="contain"
             uri={giftImage}
           />
 
           <AppText
             content={giftName}
             size={12}
+            font="regular"
             color="gray"
-            textAlign="center"
+            align="center"
             letterSpacing={0.3}
           />
         </View>
@@ -80,8 +84,9 @@ AppGiftCard.propTypes = {
   giftName: PropTypes.string,
   giftImage: Image.propTypes.source.isRequired,
   isOwner: PropTypes.bool,
-  containerStyles: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  containerStyles: ViewPropTypes.style,
   onPress: PropTypes.func,
+  index: PropTypes.number.isRequired,
 };
 
 AppGiftCard.defaultProps = {

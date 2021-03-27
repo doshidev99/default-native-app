@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
+
 import { COLORS } from '../../assets/styles';
 
 const AppLayout = ({ children, containerStyles }) => (
@@ -14,7 +15,7 @@ AppLayout.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  containerStyles: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  containerStyles: ViewPropTypes.style,
 
 };
 

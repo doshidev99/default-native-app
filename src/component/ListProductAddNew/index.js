@@ -1,6 +1,5 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import {
-  Dimensions,
   View,
 } from 'react-native';
 
@@ -13,12 +12,16 @@ import AppText from '../AppText';
 import AppBoxAddImage from '../AppBoxAddImage';
 
 import styles from './styles';
+import { APP_SCREEN } from '../../navigation/screenTypes';
+
+import { navigation } from '../../utils';
 
 const ListProductAddNew = ({ data, title, containerStyles }) => {
   const [newProduct, setNewProduct] = useState([]);
 
   const addNewProduct = () => {
-    setNewProduct([...newProduct, Math.random()]);
+    // setNewProduct([...newProduct, Math.random()]);
+    navigation.navigate(APP_SCREEN.BRAND_CATALOG);
   };
 
   const totalArray = data.length + newProduct.length;

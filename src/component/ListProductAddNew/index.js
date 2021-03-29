@@ -2,26 +2,25 @@ import React, { useState } from 'react';
 import {
   View,
 } from 'react-native';
-
 import PropTypes from 'prop-types';
+
 import { useNavigation } from '@react-navigation/native';
 
 import { images } from '../../assets/images';
-
+import { APP_SCREEN } from '../../navigation/screenTypes';
+import AppBoxAddImage from '../AppBoxAddImage';
 import AppGiftCard from '../AppGiftCard';
 import AppText from '../AppText';
-import AppBoxAddImage from '../AppBoxAddImage';
-
 import styles from './styles';
-import { APP_SCREEN } from '../../navigation/screenTypes';
 
-const ListProductAddNew = ({ data, title, containerStyles }) => {
+const ListProductAddNew = ({
+  data, title, containerStyles,
+}) => {
   const [newProduct, setNewProduct] = useState([]);
 
   const navigation = useNavigation();
 
   const addNewProduct = () => {
-    console.log('addNewProduct');
     navigation.navigate(APP_SCREEN.BRAND_CATALOG);
   };
 
@@ -44,6 +43,7 @@ const ListProductAddNew = ({ data, title, containerStyles }) => {
         {
           data.map((e, index) => (
             <AppGiftCard
+              onPress={() => navigation.navigate(APP_SCREEN.PRODUCT_DETAILS_ADD)}
               key={e}
               index={index}
               giftImage={images.bike}

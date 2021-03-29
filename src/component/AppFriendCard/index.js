@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, View, TouchableWithoutFeedback } from 'react-native';
 
-import { images } from '../../assets/images';
 import AppImage from '../AppImage';
 import AppText from '../AppText';
 import styles from './styles';
 
 const AppFriendCard = (props) => {
   const {
-    uri, mainName, subName, addon, onPress,
+    uri, mainName, subName, onPress,
+    bgColor,
   } = props;
 
   return (
@@ -19,9 +19,9 @@ const AppFriendCard = (props) => {
           <AppImage
             uri={uri}
             resizeMode="contain"
-            size="small"
             shape="circle"
-            containerStyles={{ backgroundColor: '#1C0404' }}
+            containerStyles={{ width: 40, height: 40, backgroundColor: bgColor }}
+
           />
         </View>
 
@@ -35,14 +35,6 @@ const AppFriendCard = (props) => {
           <AppText content={subName} font="thin" color="gray" />
         </View>
 
-        {
-          addon && (
-            <View style={styles.icon}>
-              <AppImage resizeMode="cover" size="icon" uri={images.icArrowRight} />
-            </View>
-          )
-        }
-
       </View>
     </TouchableWithoutFeedback>
 
@@ -53,15 +45,15 @@ AppFriendCard.propTypes = {
   uri: Image.propTypes.source.isRequired,
   mainName: PropTypes.string,
   subName: PropTypes.string,
-  addon: PropTypes.bool,
   onPress: PropTypes.func,
+  bgColor: PropTypes.string,
 };
 
 AppFriendCard.defaultProps = {
   mainName: 'Anthony Sims',
-  subName: '2nd August',
-  addon: false,
+  subName: '',
   onPress: () => { },
+  bgColor: '#1C0404',
 };
 
 export default AppFriendCard;

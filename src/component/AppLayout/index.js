@@ -4,11 +4,27 @@ import { View, ViewPropTypes } from 'react-native';
 
 import { COLORS } from '../../assets/styles';
 
-const AppLayout = ({ children, containerStyles }) => (
-  <View style={[{ flex: 1, backgroundColor: COLORS.NEUTRAL_WHITE }, containerStyles]}>
-    {children}
-  </View>
-);
+const AppLayout = ({ children, containerStyles, theme }) => {
+  let backgroundColor = '';
+
+  switch (theme) {
+    case 'grey':
+      backgroundColor = COLORS.NEUTRAL_GRAY_5;
+      break;
+
+    case 'white':
+      backgroundColor = COLORS.NEUTRAL_WHITE;
+      break;
+
+    default: break;
+  }
+
+  return (
+    <View style={[{ flex: 1, backgroundColor }, containerStyles]}>
+      {children}
+    </View>
+  );
+};
 
 AppLayout.propTypes = {
   children: PropTypes.oneOfType([
@@ -17,10 +33,13 @@ AppLayout.propTypes = {
   ]).isRequired,
   containerStyles: ViewPropTypes.style,
 
+  theme: PropTypes.oneOf(['grey', 'white']),
+
 };
 
 AppLayout.defaultProps = {
   containerStyles: {},
+  theme: 'white',
 };
 
 export default AppLayout;

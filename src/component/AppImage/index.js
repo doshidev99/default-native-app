@@ -79,7 +79,7 @@ const AppImage = (props) => {
           height: '100%',
         }, styleRadius]}
         source={uri}
-        fadeDuration={fade && 0}
+        fadeDuration={fade ? 0 : 300}
       />
 
     </View>

@@ -62,7 +62,10 @@ const AppTabBottom = () => {
           } = t;
           return (
             <TouchableWithoutFeedback key={id} onPress={() => navigation.navigate(nameScreen)}>
-              <View>
+              <View style={{
+                alignItems: 'center',
+              }}
+              >
                 <AppImage
                   containerStyles={{ width: 32, height: 32 }}
                   uri={name === nameScreen ? iconActive : icon}
@@ -73,9 +76,9 @@ const AppTabBottom = () => {
                   color={name === nameScreen ? 'blue' : 'gray55'}
                   content={nameScreen}
                   font="regular"
+                  align="center"
                   capitalize
                   size={10}
-                  textAlign="center"
                 />
               </View>
             </TouchableWithoutFeedback>

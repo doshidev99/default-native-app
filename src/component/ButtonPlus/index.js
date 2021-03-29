@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { ViewPropTypes } from 'react-native';
 import AppButton from '../AppButton';
 import AppImage from '../AppImage';
 
@@ -20,6 +21,8 @@ const ButtonPlus = (props) => {
       height={56}
       containerStyles={{
         borderRadius: 20,
+        ...style,
+        alignItems: 'center',
       }}
     >
       <AppImage uri={IconPlus} containerStyles={{ width: 22, height: 22 }} />
@@ -30,11 +33,13 @@ const ButtonPlus = (props) => {
 ButtonPlus.propTypes = {
   loading: PropTypes.bool,
   onPress: PropTypes.func,
+  style: ViewPropTypes.style,
 };
 
 ButtonPlus.defaultProps = {
   loading: false,
   onPress: () => { },
+  style: {},
 };
 
 export default ButtonPlus;

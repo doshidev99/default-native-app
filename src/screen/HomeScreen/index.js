@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 import {
   ScrollView,
-  View,
+  View, FlatList,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -20,10 +20,13 @@ import AppCalendar from '../../component/AppCalendar';
 
 import { APP_SCREEN } from '../../navigation/screenTypes';
 
+const currentDate = new Date();
+const dayString = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
+
 const HomeScreen = () => {
   const navigation = useNavigation();
 
-  const [currentDay, setCurrentDay] = useState('2021-03-21');
+  const [currentDay, setCurrentDay] = useState(dayString);
 
   const handleMoving = () => {
     navigation.navigate(APP_SCREEN.GIFTDETAIL);
@@ -32,6 +35,15 @@ const HomeScreen = () => {
   const vacation = { key: 'vacation', color: 'red', selectedDotColor: 'blue' };
   const massage = { key: 'massage', color: 'blue', selectedDotColor: 'blue' };
   const workout = { key: 'workout', color: 'green' };
+
+  const renderItem = () => (
+    <AppFriendCard
+      onPress={handleMoving}
+      uri={images.defaultAvatar}
+      mainName="Anthony sims"
+      subName="17 July"
+    />
+  );
 
   return (
     <>
@@ -46,7 +58,7 @@ const HomeScreen = () => {
         </View>
         <View>
 
-          {/* <Calendar
+          <Calendar
             style={styles.calendar}
             current={Date()}
             minDate="2021-03-01"
@@ -84,9 +96,9 @@ const HomeScreen = () => {
               textDayHeaderFontSize: 14,
             }}
 
-          /> */}
+          />
 
-          <AppCalendar currentDate="2021-03-21" />
+          {/* <AppCalendar currentDate="2021-03-21" /> */}
         </View>
       </View>
 
@@ -94,14 +106,12 @@ const HomeScreen = () => {
         flex: 30, justifyContent: 'flex-end', paddingBottom: 83,
       }}
       >
-        <ScrollView>
-          {
-            [1, 2, 3, 4, 5].map((e) => (
-              <AppFriendCard key={e} onPress={handleMoving} uri={images.defaultAvatar} mainName="Anthony sims" subName="17 July" />
-            ))
-          }
 
-        </ScrollView>
+        <FlatList
+          data={[1, 2, 3, 4, 5]}
+          renderItem={renderItem}
+          keyExtractor={(item) => `${item}-333`}
+        />
       </View>
 
       <AppTabBottom />

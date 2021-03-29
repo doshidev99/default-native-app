@@ -55,6 +55,7 @@ const LoginScreen = () => (
         <AppText
           content="login with facebook"
           uppercase
+          align="center"
           theme="blue"
           textColor="white"
         />

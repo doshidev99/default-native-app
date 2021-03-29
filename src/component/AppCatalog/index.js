@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, View, TouchableWithoutFeedback } from 'react-native';
 
 import PropTypes from 'prop-types';
 
@@ -13,53 +13,59 @@ import { images } from '../../assets/images';
 const AppCatalog = (props) => {
   const {
     imageCatalog, catalog, bgColor, bgImage,
+    onPress,
   } = props;
 
   return (
-    <View style={[
-      styles.container,
-      {
-        backgroundColor: bgColor,
-        paddingLeft: 20,
-        paddingRight: 29,
-      },
-    ]}
-    >
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={[
+        styles.container,
+        {
+          backgroundColor: bgColor,
+          paddingLeft: 20,
+          paddingRight: 29,
+        },
+      ]}
+      >
 
-      <View style={styles.flexBox}>
-        <AppText
-          font="semi"
-          uppercase
-          content={catalog}
-          size={20}
-          color="gray"
-        />
+        <View style={styles.flexBox}>
+          <AppText
+            font="semi"
+            uppercase
+            content={catalog}
+            size={20}
+            color="gray"
+          />
 
-        <View style={{
-          width: 100,
-          height: 100,
-          borderRadius: 50,
-          backgroundColor: bgImage,
-          marginVertical: 10,
-          position: 'relative',
-        }}
-        />
-        <AppImage
-          uri={imageCatalog}
-          containerStyles={{
-            position: 'absolute',
-            right: 10,
-            top: 5,
-            bottom: '-5%',
-
-            width: 72,
-            overflow: 'hidden',
+          <View style={{
+            width: 100,
+            height: 100,
+            borderRadius: 50,
+            backgroundColor: bgImage,
+            marginVertical: 10,
           }}
-        />
+          >
+
+            <AppImage
+              uri={imageCatalog}
+              resizeMode="contain"
+              containerStyles={{
+                position: 'absolute',
+                right: 0,
+                top: 5,
+                bottom: '-15%',
+
+                width: '100%',
+                overflow: 'hidden',
+              }}
+            />
+          </View>
+
+        </View>
 
       </View>
+    </TouchableWithoutFeedback>
 
-    </View>
   );
 };
 
@@ -68,6 +74,7 @@ AppCatalog.propTypes = {
   catalog: PropTypes.string,
   bgColor: PropTypes.string,
   bgImage: PropTypes.string,
+  onPress: PropTypes.func,
 };
 
 AppCatalog.defaultProps = {
@@ -75,6 +82,7 @@ AppCatalog.defaultProps = {
   catalog: 'new in',
   bgColor: '#D0D0FF',
   bgImage: '#9595F1',
+  onPress: () => { },
 };
 
 export default AppCatalog;

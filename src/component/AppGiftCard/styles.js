@@ -25,4 +25,10 @@ export default StyleSheet.create({
     height: '100%',
     overflow: 'hidden',
   },
+
+  flexBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
 });

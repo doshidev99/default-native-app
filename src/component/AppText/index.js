@@ -146,7 +146,7 @@ AppText.defaultProps = {
   content: 'text',
   size: 13,
   color: 'dark',
-  align: 'left',
+  align: 'justify',
   font: 'regular',
   letterSpacing: 0.5,
   containerStyles: {},

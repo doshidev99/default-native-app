@@ -25,7 +25,7 @@ const renderLabel = ({ route, focused }) => (
 
 );
 
-const GiftDetail = () => {
+const GiftDetailScreen = () => {
   const layout = useWindowDimensions();
 
   const [index, setIndex] = useState(0);
@@ -68,10 +68,10 @@ const GiftDetail = () => {
   );
 };
 
-GiftDetail.propTypes = {
+GiftDetailScreen.propTypes = {
 };
 
-GiftDetail.defaultProps = {
+GiftDetailScreen.defaultProps = {
 };
 
-export default memo(GiftDetail);
+export default memo(GiftDetailScreen);

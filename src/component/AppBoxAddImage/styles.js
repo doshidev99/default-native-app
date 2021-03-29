@@ -8,6 +8,7 @@ export default StyleSheet.create({
     borderColor: '#CDCDCD',
     borderWidth: 2,
     borderStyle: 'dashed',
+    borderRadius: 1,
   },
 
   flexCenter: {

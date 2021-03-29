@@ -15,5 +15,15 @@ export default StyleSheet.create({
     backgroundColor: '#FFF',
     paddingHorizontal: 31,
 
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
+
+    elevation: 24,
+
   },
 });

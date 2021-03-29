@@ -37,6 +37,7 @@ const AppModal = ({
             content={textApply}
             uppercase
             bold
+            align="center"
             color="white"
           />
         </AppButton>
@@ -50,6 +51,7 @@ const AppModal = ({
           <AppText
             content={textCancel}
             uppercase
+            align="center"
             bold
             color="dark"
           />

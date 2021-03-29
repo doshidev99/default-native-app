@@ -30,8 +30,8 @@ const ListerScreen = () => {
         <AppInputSearch />
         <ScrollView style={{ marginTop: 24 }}>
           <ListProductAddNew data={[1, 2]} title="My public list" />
-          <ListProductAddNew containerStyles={{ paddingTop: 25 }} data={[1, 2, 3]} title="List for Janiel" handleMoving={handleMoving} />
-          <ListProductAddNew containerStyles={{ paddingTop: 25, paddingBottom: 83 }} data={[1]} title="List for Patrick" handleMoving={handleMoving} />
+          <ListProductAddNew containerStyles={{ paddingTop: 25 }} data={[1, 2, 3]} title="List for Janiel" onPress={handleMoving} />
+          <ListProductAddNew containerStyles={{ paddingTop: 25, paddingBottom: 83 }} data={[1]} title="List for Patrick" onPress={handleMoving} />
         </ScrollView>
       </AppLayout>
       <AppTabBottom />

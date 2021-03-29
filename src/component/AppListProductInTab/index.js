@@ -1,10 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
 
 import PropTypes from 'prop-types';
 import { images } from '../../assets/images';
 
-import AppGiftCard from '../AppGiftCard';
+import AppListGiftCard from '../AppListGiftCard';
 import AppText from '../AppText';
 
 import styles from './styles';
@@ -24,19 +24,7 @@ const AppListProductInTab = ({
       </>
     </View>
 
-    <View style={[styles.flexBox]}>
-      {
-        data.map((e, index) => (
-          <AppGiftCard
-            key={e}
-            index={index}
-            onPress={handleMoving}
-            giftImage={images.bike}
-            giftName="CRB 2000"
-          />
-        ))
-      }
-    </View>
+    <AppListGiftCard data={data} onPress={handleMoving} />
   </View>
 
 );
@@ -45,7 +33,7 @@ AppListProductInTab.propTypes = {
   data: PropTypes.instanceOf(Array),
   title: PropTypes.string,
   handleMoving: PropTypes.func,
-  containerStyles: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  containerStyles: ViewPropTypes.style,
 };
 
 AppListProductInTab.defaultProps = {

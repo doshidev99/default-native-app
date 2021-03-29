@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import {
-  TouchableHighlight, View, TouchableNativeFeedback, ViewPropTypes,
+  TouchableHighlight, View, TouchableWithoutFeedback, ViewPropTypes,
 } from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -18,6 +18,7 @@ const AppButton = (props) => {
     onPress,
     theme,
     containerStyles,
+    disabled,
     children,
   } = props;
 
@@ -52,6 +53,7 @@ const AppButton = (props) => {
               backgroundColor: bgColor,
             }]}
             onPress={onPress}
+            disabled={disabled}
           >
             <View style={[styles.wrapperContent]}>
               {
@@ -67,7 +69,10 @@ const AppButton = (props) => {
           </TouchableHighlight>
         )
           : (
-            <TouchableNativeFeedback onPress={onPress}>
+            <TouchableWithoutFeedback
+              onPress={onPress}
+              disabled={disabled}
+            >
               <View
                 style={[
                   styles.container,
@@ -85,7 +90,7 @@ const AppButton = (props) => {
                 {children}
               </View>
 
-            </TouchableNativeFeedback>
+            </TouchableWithoutFeedback>
           )
       }
 
@@ -98,6 +103,7 @@ AppButton.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
+  disabled: PropTypes.bool,
   beforePrefix: PropTypes.element,
   onPress: PropTypes.func,
   containerStyles: ViewPropTypes.style,
@@ -111,6 +117,7 @@ AppButton.defaultProps = {
   theme: 'primary',
   width: '100%',
   height: 48,
+  disabled: false,
   beforePrefix: null,
   onPress: () => { },
   containerStyles: {},

@@ -1,19 +1,16 @@
 import React, { memo } from 'react';
 import {
-  View, ScrollView,
+  ScrollView,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
-import { APP_SCREEN } from '../../navigation/screenTypes';
+import { useNavigation } from '@react-navigation/native';
 
 import AppLayout from '../AppLayout';
 import AppInputSearch from '../AppInputSearch';
-import AppGiftCard from '../AppGiftCard';
+import AppListGiftCard from '../AppListGiftCard';
 
 import styles from './styles';
-import { images } from '../../assets/images';
-
-const data = [1, 2, 3, 4, 5];
+import { APP_SCREEN } from '../../navigation/screenTypes';
 
 const TabPublicList = () => {
   const navigation = useNavigation();
@@ -21,6 +18,7 @@ const TabPublicList = () => {
   const handleMoving = () => {
     navigation.navigate(APP_SCREEN.FRIENDGIFT);
   };
+
   return (
     <AppLayout containerStyles={styles.container}>
       <AppInputSearch placeholder="Search gift" />
@@ -30,20 +28,7 @@ const TabPublicList = () => {
           marginBottom: 40,
         }}
       >
-        <View style={[styles.flexBox]}>
-          {
-            data.map((e, index) => (
-              <AppGiftCard
-                key={e}
-                index={index}
-                onPress={handleMoving}
-                giftImage={images.defaultAvatar}
-                giftName="Safari T-Shirt"
-              />
-
-            ))
-          }
-        </View>
+        <AppListGiftCard isWrap onPress={handleMoving} />
       </ScrollView>
 
     </AppLayout>

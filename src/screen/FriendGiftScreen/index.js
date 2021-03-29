@@ -12,7 +12,7 @@ import AppModal from '../../component/AppModal';
 import AppText from '../../component/AppText';
 import styles from './styles';
 
-const FriendGift = () => {
+const FriendGiftScreen = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const toggle = () => setModalOpen((preState) => !preState);
@@ -65,6 +65,7 @@ const FriendGift = () => {
             <AppText
               content="MODIFIER"
               uppercase
+              align="center"
               bold
               color="white"
             />
@@ -77,6 +78,7 @@ const FriendGift = () => {
             <AppText
               content="SUPPRIMER"
               uppercase
+              align="center"
               bold
               color="white"
             />
@@ -88,10 +90,10 @@ const FriendGift = () => {
   );
 };
 
-FriendGift.propTypes = {
+FriendGiftScreen.propTypes = {
 };
 
-FriendGift.defaultProps = {
+FriendGiftScreen.defaultProps = {
 };
 
-export default FriendGift;
+export default FriendGiftScreen;

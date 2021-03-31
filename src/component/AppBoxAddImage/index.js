@@ -33,13 +33,6 @@ const AppBoxAddImage = ({ containerStyles, onPress }) => (
           uri={icPlus}
         />
 
-        {/* <AppText
-        content=""
-        size={12}
-        color="gray"
-        textAlign="center"
-        letterSpacing={0.3}
-      /> */}
       </View>
 
     </View>

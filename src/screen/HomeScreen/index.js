@@ -1,6 +1,5 @@
 import React, { memo, useState } from 'react';
 import {
-  ScrollView,
   View, FlatList,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -16,7 +15,6 @@ import AppHeader from '../../component/AppHeader';
 import AppText from '../../component/AppText';
 import AppTabBottom from '../../component/AppTabBottom';
 import AppFriendCard from '../../component/AppFriendCard';
-import AppCalendar from '../../component/AppCalendar';
 
 import { APP_SCREEN } from '../../navigation/screenTypes';
 
@@ -57,7 +55,6 @@ const HomeScreen = () => {
           <AppText content="How are you today?" size={28} bold />
         </View>
         <View>
-
           <Calendar
             style={styles.calendar}
             current={Date()}
@@ -97,13 +94,11 @@ const HomeScreen = () => {
             }}
 
           />
-
-          {/* <AppCalendar currentDate="2021-03-21" /> */}
         </View>
       </View>
 
       <View style={{
-        flex: 30, justifyContent: 'flex-end', paddingBottom: 83,
+        flex: 30, paddingBottom: 83,
       }}
       >
 

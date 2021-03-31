@@ -1,35 +1,22 @@
-import React, { useState } from 'react';
-import {
-  View,
-} from 'react-native';
+import React from 'react';
+import WebView from 'react-native-webview';
 
-import PropTypes from 'prop-types';
-
-import AppButton from '../../component/AppButton';
-import AppCarousel from '../../component/AppCarousel';
 import AppHeader from '../../component/AppHeader';
 import AppLayout from '../../component/AppLayout';
-import AppModal from '../../component/AppModal';
-import AppText from '../../component/AppText';
-import styles from './styles';
+import AppLoading from '../../component/AppLoading';
 
-const MapScreen = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+const MapScreen = () => (
+  <AppLayout>
+    <AppHeader isGoback rightIcon namePath="Back" />
 
-  const toggle = () => setModalOpen((preState) => !preState);
+    <WebView
+      startInLoadingState
+      renderLoading={() => <AppLoading />}
+      source={{ uri: 'https://www.google.com/maps' }}
+    />
 
-  return (
-    <AppLayout>
-      <AppHeader isGoback rightIcon namePath="Back" />
-
-      <View style={{
-        flex: 1,
-      }}
-      />
-
-    </AppLayout>
-  );
-};
+  </AppLayout>
+);
 
 MapScreen.propTypes = {
 };

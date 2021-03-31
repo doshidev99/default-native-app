@@ -20,8 +20,7 @@ const AppFriendCard = (props) => {
             uri={uri}
             resizeMode="contain"
             shape="circle"
-            containerStyles={{ width: 40, height: 40, backgroundColor: bgColor }}
-
+            containerStyles={[styles.sizeAvatar, { backgroundColor: bgColor }]}
           />
         </View>
 

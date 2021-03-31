@@ -67,15 +67,7 @@ const AppListGiftCard = (props) => {
                   <AppImage
                     uri={images.defaultAvatar}
                     shape="circle"
-                    containerStyles={{
-                      position: 'absolute',
-                      right: -15,
-                      top: -15,
-
-                      width: 35,
-                      height: 35,
-                      backgroundColor: '#1C0404',
-                    }}
+                    containerStyles={styles.owner}
                   />
                 )
               }

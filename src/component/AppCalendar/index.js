@@ -18,7 +18,7 @@ LocaleConfig.defaultLocale = 'fr';
 
 const AppCalendar = (props) => {
   const {
-    onMonthChange, currentDate, markedDates, loading,
+    onMonthChange, currentDate, loading,
   } = props;
 
   const onPressArrow = (changeMonth) => {

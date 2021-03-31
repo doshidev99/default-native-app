@@ -1,23 +1,18 @@
 import React, { memo } from 'react';
-import {
-  ScrollView, TouchableWithoutFeedback, View,
-} from 'react-native';
+import { TouchableWithoutFeedback, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import icFilter from '../../assets/images/ic-filter.png';
 import { COLORS } from '../../assets/styles';
-
 import AppHeader from '../../component/AppHeader';
-import AppTabBottom from '../../component/AppTabBottom';
 import AppImage from '../../component/AppImage';
 import AppInputSearch from '../../component/AppInputSearch';
 import AppLayout from '../../component/AppLayout';
 import AppListGiftCard from '../../component/AppListGiftCard';
+import AppTabBottom from '../../component/AppTabBottom';
 import ButtonPlus from '../../component/ButtonPlus';
-
-import styles from './styles';
-
 import { APP_SCREEN } from '../../navigation/screenTypes';
+import styles from './styles';
 
 const GiverScreen = () => {
   const navigation = useNavigation();
@@ -57,6 +52,7 @@ const GiverScreen = () => {
         </View>
 
         <ButtonPlus
+          onPress={() => navigation.navigate(APP_SCREEN.ADD_PRODUCT)}
           style={{
             position: 'absolute',
             bottom: 19 + 83,

@@ -11,7 +11,9 @@ import AppHeader from '../../component/AppHeader';
 
 import MyListsInTab from '../../component/MyListsInTab';
 import ProfileInTab from '../../component/ProfileInTab';
-import TabProductWithFriend from '../../component/TabProductWithFriend';
+import HistoryInTab from '../../component/HistoryInTab';
+import MyFriendInTab from '../../component/MyFriendInTab';
+
 import AppTabBottom from '../../component/AppTabBottom';
 
 import styles from './styles';
@@ -22,6 +24,10 @@ const renderLabel = ({ route, focused }) => (
     uppercase
     color={focused ? 'red' : 'gray55'}
     size={13}
+    letterSpacing={0.5}
+    containerStyles={{
+    }}
+    align="left"
   />
 
 );
@@ -41,8 +47,8 @@ const SettingScreen = () => {
   const renderScene = SceneMap({
     list: MyListsInTab,
     profile: ProfileInTab,
-    history: TabProductWithFriend,
-    myFriends: TabProductWithFriend,
+    history: HistoryInTab,
+    myFriends: MyFriendInTab,
   });
 
   return (

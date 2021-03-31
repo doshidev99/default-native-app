@@ -12,7 +12,7 @@ import AppListGiftCard from '../AppListGiftCard';
 import styles from './styles';
 import { APP_SCREEN } from '../../navigation/screenTypes';
 
-const TabPublicList = () => {
+const PublicListInTab = () => {
   const navigation = useNavigation();
 
   const handleMoving = () => {
@@ -35,10 +35,10 @@ const TabPublicList = () => {
   );
 };
 
-TabPublicList.propTypes = {
+PublicListInTab.propTypes = {
 };
 
-TabPublicList.defaultProps = {
+PublicListInTab.defaultProps = {
 };
 
-export default memo(TabPublicList);
+export default memo(PublicListInTab);

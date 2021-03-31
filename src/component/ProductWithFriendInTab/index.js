@@ -9,7 +9,7 @@ import AppListProductInTab from '../AppListProductInTab';
 
 import styles from './styles';
 
-const TabProductWithFriend = () => {
+const ProductWithFriendInTab = () => {
   const navigation = useNavigation();
 
   const handleMoving = () => {
@@ -30,10 +30,10 @@ const TabProductWithFriend = () => {
   );
 };
 
-TabProductWithFriend.propTypes = {
+ProductWithFriendInTab.propTypes = {
 };
 
-TabProductWithFriend.defaultProps = {
+ProductWithFriendInTab.defaultProps = {
 };
 
-export default TabProductWithFriend;
+export default ProductWithFriendInTab;

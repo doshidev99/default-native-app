@@ -3,9 +3,21 @@ import { COLORS } from '../../assets/styles';
 
 export default StyleSheet.create({
   container: {
-    marginBottom: 10,
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+  },
 
-    backgroundColor: COLORS.NEUTRAL_GRAY_5,
+  containerListImg: {
+    flex: 5,
+    paddingBottom: 10,
+  },
+
+  containerImage: {
+    marginBottom: 10,
+    height: 139,
+    overflow: 'hidden',
+
+    backgroundColor: COLORS.ACCENT_BLUE,
     borderRadius: 4,
 
     shadowColor: COLORS.NEUTRAL_GRAY_5,
@@ -19,25 +31,10 @@ export default StyleSheet.create({
     elevation: 3,
   },
 
-  wrapperImage: {
-    width: '100%',
-    height: '100%',
-    overflow: 'hidden',
-  },
-
   flexBox: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-
-  owner: {
-    position: 'absolute',
-    right: -15,
-    top: -15,
-
-    width: 35,
-    height: 35,
-    backgroundColor: '#1C0404',
+    flexWrap: 'wrap',
   },
 
 });

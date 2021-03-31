@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { ScrollView, useWindowDimensions } from 'react-native';
+import { useWindowDimensions } from 'react-native';
 import { SceneMap, TabView, TabBar } from 'react-native-tab-view';
 
 import { images } from '../../assets/images';
@@ -9,8 +9,8 @@ import UserAvatar from '../../component/UserAvatar';
 import AppText from '../../component/AppText';
 import AppHeader from '../../component/AppHeader';
 
-import TabPublicList from '../../component/TabPublicList';
-import TabProductWithFriend from '../../component/TabProductWithFriend';
+import PublicListInTab from '../../component/PublicListInTab';
+import ProductWithFriendInTab from '../../component/ProductWithFriendInTab';
 
 import styles from './styles';
 
@@ -36,8 +36,8 @@ const GiftDetailScreen = () => {
   ];
 
   const renderScene = SceneMap({
-    list: TabPublicList,
-    friends: TabProductWithFriend,
+    list: PublicListInTab,
+    friends: ProductWithFriendInTab,
   });
 
   return (

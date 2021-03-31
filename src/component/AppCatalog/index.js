@@ -22,8 +22,6 @@ const AppCatalog = (props) => {
         styles.container,
         {
           backgroundColor: bgColor,
-          paddingLeft: 20,
-          paddingRight: 29,
         },
       ]}
       >
@@ -37,27 +35,15 @@ const AppCatalog = (props) => {
             color="gray"
           />
 
-          <View style={{
-            width: 100,
-            height: 100,
-            borderRadius: 50,
+          <View style={[styles.bgCircle, {
             backgroundColor: bgImage,
-            marginVertical: 10,
-          }}
+          }]}
           >
 
             <AppImage
               uri={imageCatalog}
               resizeMode="contain"
-              containerStyles={{
-                position: 'absolute',
-                right: 0,
-                top: 5,
-                bottom: '-15%',
-
-                width: '100%',
-                overflow: 'hidden',
-              }}
+              containerStyles={styles.imgRepresent}
             />
           </View>
 

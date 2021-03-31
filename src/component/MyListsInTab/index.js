@@ -1,6 +1,7 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
 
 import { APP_SCREEN } from '../../navigation/screenTypes';
 import AppInputSearch from '../AppInputSearch';

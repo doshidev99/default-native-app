@@ -10,6 +10,7 @@ import FriendGiftScreen from '../screen/FriendGiftScreen';
 import ListerScreen from '../screen/ListerScreen';
 import BrandCatalogScreen from '../screen/BrandCatalogScreen';
 import ProductDetailScreen from '../screen/ProductDetailScreen';
+import AddProductScreen from '../screen/AddProductScreen';
 import ProductDetailAddScreen from '../screen/ProductDetailAddScreen';
 import InviteFriendScreen from '../screen/InviteFriendScreen';
 
@@ -38,6 +39,8 @@ const StackAuthentication = [
   { name: APP_SCREEN.GIVER_SUGGEST, component: GiverSuggestScreen },
   { name: APP_SCREEN.PRODUCT_DETAILS_ADD, component: ProductDetailAddScreen },
   { name: APP_SCREEN.PRODUCT_DETAILS, component: ProductDetailScreen },
+  { name: APP_SCREEN.ADD_PRODUCT, component: AddProductScreen },
+
   { name: APP_SCREEN.WEB_VIEW_SCREEN, component: WebViewScreen },
   { name: APP_SCREEN.INVITE_FRIEND, component: InviteFriendScreen },
 
@@ -55,7 +58,7 @@ const RootNavigator = () => {
 
   return (
     <>
-      <Stack.Navigator headerMode="none" initialRouteName={APP_SCREEN.WEB_VIEW_SCREEN}>
+      <Stack.Navigator headerMode="none" initialRouteName={APP_SCREEN.HOME}>
         {
           !token ? (
             <Stack.Screen name={APP_SCREEN.LOGIN} component={LoginScreen} />

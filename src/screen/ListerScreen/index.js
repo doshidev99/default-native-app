@@ -5,9 +5,6 @@ import {
 
 import { useNavigation } from '@react-navigation/native';
 
-import { COLORS } from '../../assets/styles';
-
-import AppFlex from '../../component/AppFlex';
 import AppHeader from '../../component/AppHeader';
 import AppInputSearch from '../../component/AppInputSearch';
 import AppLayout from '../../component/AppLayout';
@@ -24,7 +21,7 @@ const ListerScreen = () => {
   };
 
   return (
-    <AppFlex flex={1} justify="space-between" bg={COLORS.NEUTRAL_GRAY_5}>
+    <>
       <AppHeader divider />
       <AppLayout containerStyles={styles.container}>
         <AppInputSearch />
@@ -35,7 +32,7 @@ const ListerScreen = () => {
         </ScrollView>
       </AppLayout>
       <AppTabBottom />
-    </AppFlex>
+    </>
 
   );
 };

@@ -17,6 +17,11 @@ export default StyleSheet.create({
     flex: 10,
   },
 
+  sizeAvatar: {
+    width: 40,
+    height: 40,
+  },
+
   bgImage: {
     backgroundColor: '#1C0404',
   },

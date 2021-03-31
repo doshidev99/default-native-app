@@ -1,14 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
-import AppText from '../../component/AppText';
-// import { WebView } from 'react-native-webview';
-import styles from './styles';
+
+import WebView from 'react-native-webview';
+import AppLayout from '../../component/AppLayout';
+
+import AppLoading from '../../component/AppLoading';
 
 const WebViewScreen = () => (
-  <View style={[styles.container]}>
-    <AppText content="web - view" />
-    {/* <WebView source={{ uri: 'https://wiicamp.com/' }} /> */}
-  </View>
+  <AppLayout>
+
+    <WebView
+      startInLoadingState
+      renderLoading={() => <AppLoading />}
+      source={{ uri: 'https://wiicamp.com/' }}
+    />
+  </AppLayout>
 );
 
 WebViewScreen.propTypes = {

@@ -2,7 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    alignItems: 'center',
-    borderRadius: 20,
+    marginBottom: 100,
+  },
+
+  listContent: {
+    paddingTop: 20,
   },
 });

@@ -19,13 +19,14 @@ const ButtonPlus = (props) => {
       onPress={onPress}
       width={56}
       height={56}
-      containerStyles={{
-        borderRadius: 20,
+      containerStyles={[styles.container, {
         ...style,
-        alignItems: 'center',
-      }}
+      }]}
     >
-      <AppImage uri={IconPlus} containerStyles={{ width: 22, height: 22 }} />
+      <AppImage
+        uri={IconPlus}
+        containerStyles={{ width: 22, height: 22 }}
+      />
     </AppButton>
   );
 };

@@ -2,27 +2,25 @@ import React, { useState } from 'react';
 import {
   View,
 } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+
 import AppButton from '../../component/AppButton';
 import AppHeader from '../../component/AppHeader';
 import AppLayout from '../../component/AppLayout';
-import AppModal from '../../component/AppModal';
 import AppProductDetail from '../../component/AppProductDetail';
 import AppText from '../../component/AppText';
+import { APP_SCREEN } from '../../navigation/screenTypes';
 
 const ProductDetailAddScreen = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const navigation = useNavigation();
 
-  const toggle = () => setModalOpen((preState) => !preState);
-
+  const handlePress = () => {
+    navigation.navigate(APP_SCREEN.ADD_PRODUCT);
+  };
   return (
     <AppLayout>
       <AppHeader isGoback rightIcon />
-      <AppModal
-        visible={modalOpen}
-        onCancel={toggle}
-        title="Congratulation!"
-        description="You product is added, would you like to buy something else"
-      />
 
       <View style={{
         flex: 1,
@@ -32,7 +30,7 @@ const ProductDetailAddScreen = () => {
 
         <View style={{ flex: 10, paddingHorizontal: 20, marginTop: 20 }}>
           <AppButton
-            onPress={toggle}
+            onPress={handlePress}
           >
             <AppText
               content="add product"

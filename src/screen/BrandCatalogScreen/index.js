@@ -3,8 +3,6 @@ import {
   ScrollView,
 } from 'react-native';
 
-import PropTypes from 'prop-types';
-
 import { useNavigation } from '@react-navigation/native';
 
 import AppCatalog from '../../component/AppCatalog';

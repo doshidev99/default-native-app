@@ -58,11 +58,6 @@ const AppGiftCard = (props) => {
             <AppImage
               uri={images.defaultAvatar}
               shape="circle"
-              styleImage={{
-                width: 35,
-                height: 35,
-                backgroundColor: '#1C0404',
-              }}
               containerStyles={{
                 position: 'absolute',
                 right: -15,
